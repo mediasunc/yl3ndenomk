@@ -231,15 +231,15 @@
     /* CONTAINER */
     .container {
       width: 100%;
-      max-width: 430px;
-      padding: 14px;
+      max-width: 440px;
+      padding: 18px 16px;
       z-index: 10;
       display: flex;
       flex-direction: column;
       gap: 14px;
       animation: fadeUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       flex: 1;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     @keyframes fadeUp {
@@ -257,10 +257,10 @@
     /* HERO */
     .hero-section {
       text-align: center;
-      padding: 16px 4px;
+      padding: 10px 8px 6px;
       overflow: hidden;
-      max-height: 600px;
-      transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.25s ease, margin 0.25s ease;
+      max-height: 700px;
+      transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease, margin 0.25s ease;
     }
 
     .hero-section.hidden {
@@ -271,38 +271,193 @@
       pointer-events: none;
     }
 
+    /* EYEBROW */
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(204, 255, 0, 0.08);
+      border: 1px solid rgba(204, 255, 0, 0.24);
+      border-radius: var(--r-full);
+      padding: 6px 16px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 22px;
+    }
+
+    .hero-eyebrow svg { fill: currentColor; flex-shrink: 0; }
+
     .hero-title {
-      font-size: clamp(1.15rem, 4.8vw, 1.45rem);
+      font-size: clamp(1.25rem, 5.4vw, 1.58rem);
       font-weight: 900;
       color: #fff;
       line-height: 1.4;
-      margin-bottom: 12px;
-      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
-      letter-spacing: -0.01em;
+      margin-bottom: 0;
+      text-shadow: 0 2px 22px rgba(0, 0, 0, 0.7);
+      letter-spacing: -0.02em;
     }
 
-    .hero-subtitle {
-      font-size: clamp(0.82rem, 3.2vw, 0.95rem);
-      font-weight: 600;
-      color: var(--text-sub);
-      line-height: 1.6;
-      opacity: 0;
-      transition: opacity 0.5s;
+    .hero-highlight {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      right: 0;
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transform-origin: right center;
+      animation: underlineGrow 1.9s ease-in-out infinite alternate;
+    }
+
+    @keyframes underlineGrow {
+      from { opacity: 0.3; transform: scaleX(0.5); }
+      to   { opacity: 1;   transform: scaleX(1); }
+    }
+
+    /* HERO STATS ROW */
+    .hero-stats {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      margin-top: 26px;
       background: rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 18px 12px;
+      opacity: 0;
+      transition: opacity 0.6s;
     }
 
-    .hero-subtitle strong {
+    .hstat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .hstat-num {
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      font-weight: 900;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    #member-counter {
+      font-variant-numeric: tabular-nums;
+      min-width: 3.2ch;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .hstat-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.02em;
+    }
+
+    .hstat-div {
+      width: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 0 8px;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+    /* TRUST BADGES STRIP */
+    .trust-strip {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--r-full);
+      padding: 7px 14px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.75);
+      white-space: nowrap;
+    }
+
+    .trust-badge svg {
+      fill: rgba(255, 255, 255, 0.5);
+      flex-shrink: 0;
+    }
+
+    .trust-badge .tb-val {
       color: var(--accent);
     }
 
-    /* START WRAP */
+    /* TEASER CARD */
+    .teaser-card {
+      background: rgba(204, 255, 0, 0.04);
+      border: 1px solid rgba(204, 255, 0, 0.15);
+      border-radius: var(--r-md);
+      padding: 20px 22px;
+    }
+
+    .teaser-title {
+      font-size: 0.74rem;
+      font-weight: 900;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .teaser-title svg { fill: currentColor; flex-shrink: 0; }
+
+    .teaser-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .teaser-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.5;
+    }
+
+    .teaser-list li svg {
+      fill: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* START WRAP — display managed fully by JS */
     .start-wrap {
+      flex-direction: column;
+      gap: 16px;
       opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.4s, transform 0.4s;
-      display: none;
+      transform: translateY(14px);
+      transition: opacity 0.42s, transform 0.42s;
     }
 
     .start-wrap.visible {
@@ -315,8 +470,8 @@
       background: var(--accent);
       color: #000;
       border: none;
-      padding: 14px 18px;
-      font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+      padding: 15px 18px;
+      font-size: clamp(0.97rem, 3.8vw, 1.12rem);
       font-weight: 900;
       font-family: 'Cairo', sans-serif;
       border-radius: var(--r-full);
@@ -325,17 +480,58 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      box-shadow: 0 6px 18px rgba(204, 255, 0, 0.32);
-      transition: transform 0.18s;
+      box-shadow: 0 6px 22px rgba(204, 255, 0, 0.4);
+      transition: transform 0.18s, box-shadow 0.18s;
+      animation: btnGlow 2s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-start::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.22) 50%, transparent 60%);
+      transform: translateX(-100%);
+      animation: btnShine 2.8s ease-in-out infinite;
+    }
+
+    @keyframes btnShine {
+      0%   { transform: translateX(-100%); }
+      40%, 100% { transform: translateX(160%); }
+    }
+
+    @keyframes btnGlow {
+      0%, 100% { box-shadow: 0 6px 22px rgba(204, 255, 0, 0.38); }
+      50%       { box-shadow: 0 8px 32px rgba(204, 255, 0, 0.62); }
     }
 
     .btn-start:active {
       transform: scale(0.97);
+      animation: none;
     }
 
     .btn-start svg {
       fill: currentColor;
       flex-shrink: 0;
+    }
+
+    .btn-arrow {
+      animation: arrowBounce 1.1s ease-in-out infinite;
+      display: inline-flex;
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateX(0); }
+      50%       { transform: translateX(-5px); }
+    }
+
+    .btn-start-hint {
+      text-align: center;
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.04em;
     }
 
     /* CARD */
@@ -345,8 +541,8 @@
       -webkit-backdrop-filter: blur(22px);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
-      padding: 18px 16px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      padding: 26px 22px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
 
     /* VIEWS */
@@ -369,7 +565,7 @@
       height: 3px;
       background: rgba(255, 255, 255, 0.07);
       border-radius: var(--r-full);
-      margin-bottom: 18px;
+      margin-bottom: 26px;
       overflow: hidden;
     }
 
@@ -386,29 +582,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
+      gap: 8px;
       font-size: clamp(0.95rem, 3.8vw, 1.15rem);
       font-weight: 900;
       color: var(--accent);
       text-align: center;
-      margin-bottom: 9px;
-      line-height: 1.25;
+      margin-bottom: 16px;
+      line-height: 1.3;
     }
 
     .q-text {
-      font-size: clamp(0.85rem, 3.3vw, 1rem);
+      font-size: clamp(0.87rem, 3.4vw, 1.02rem);
       font-weight: 600;
       text-align: center;
       color: #eee;
-      line-height: 1.55;
-      margin-bottom: 18px;
+      line-height: 1.62;
+      margin-bottom: 26px;
     }
 
     /* SURVEY BUTTONS */
     .btn-grid {
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 11px;
     }
 
     .survey-btn {
@@ -416,8 +612,8 @@
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
       color: #fff;
-      padding: 12px 14px;
-      font-size: clamp(0.83rem, 3.2vw, 0.95rem);
+      padding: 15px 18px;
+      font-size: clamp(0.84rem, 3.3vw, 0.96rem);
       font-weight: 700;
       font-family: 'Cairo', sans-serif;
       border-radius: var(--r-full);
@@ -435,8 +631,8 @@
     .survey-btn::after {
       content: '';
       flex-shrink: 0;
-      width: 17px;
-      height: 17px;
+      width: 18px;
+      height: 18px;
       border: 2px solid rgba(255, 255, 255, 0.2);
       border-radius: 50%;
       transition: all 0.18s;
@@ -471,14 +667,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-      padding: 18px 0;
+      gap: 18px;
+      padding: 36px 0;
       text-align: center;
     }
 
     .spinner {
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       border: 3px solid rgba(255, 255, 255, 0.07);
       border-top-color: var(--accent);
       border-radius: 50%;
@@ -506,7 +702,7 @@
     /* FINAL SCREEN */
     .final-head {
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: 26px;
     }
 
     .final-badge {
@@ -538,6 +734,70 @@
       line-height: 1.55;
     }
 
+    /* URGENCY SLOTS COUNTER */
+    .slots-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(255, 60, 60, 0.12);
+      border: 1px solid rgba(255, 60, 60, 0.25);
+      border-radius: var(--r-full);
+      padding: 6px 14px;
+      margin-bottom: 12px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #ff6b6b;
+      animation: slotsFlicker 2.5s ease-in-out infinite;
+    }
+
+    @keyframes slotsFlicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.75; }
+    }
+
+    .slots-dot {
+      width: 7px;
+      height: 7px;
+      background: #ff4444;
+      border-radius: 50%;
+      animation: dotPulse 1.2s ease-in-out infinite;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.7; }
+    }
+
+    /* SOCIAL PROOF STRIP */
+    .social-proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 14px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .social-avatars {
+      display: flex;
+    }
+
+    .social-avatars span {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #111;
+      margin-left: -7px;
+      font-size: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
     .tg-btn-main {
       display: flex;
       flex-direction: column;
@@ -545,15 +805,34 @@
       justify-content: center;
       gap: 5px;
       width: 100%;
-      padding: 16px 14px;
-      background: linear-gradient(135deg, #009ae4, #006db3);
+      padding: 17px 14px;
+      background: linear-gradient(135deg, #009ae4 0%, #006db3 60%, #004f8a 100%);
       border-radius: var(--r-lg);
       text-decoration: none;
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 10px 26px rgba(0, 136, 204, 0.42);
       transition: transform 0.18s, box-shadow 0.18s;
       animation: pulse 2.2s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tg-btn-main::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: rgba(255,255,255,0.12);
+      transform: skewX(-20deg);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -60%; }
+      100% { left: 160%; }
     }
 
     .tg-btn-main:active {
@@ -562,15 +841,8 @@
     }
 
     @keyframes pulse {
-
-      0%,
-      100% {
-        box-shadow: 0 8px 18px rgba(0, 136, 204, 0.38);
-      }
-
-      50% {
-        box-shadow: 0 14px 34px rgba(0, 136, 204, 0.62);
-      }
+      0%, 100% { box-shadow: 0 8px 18px rgba(0, 136, 204, 0.38); }
+      50% { box-shadow: 0 14px 34px rgba(0, 136, 204, 0.72); }
     }
 
     .tg-label {
@@ -584,7 +856,7 @@
     .tg-sublabel {
       font-size: clamp(0.75rem, 2.8vw, 0.87rem);
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.78);
+      color: rgba(255, 255, 255, 0.85);
     }
 
     .tg-btn-secondary {
@@ -665,27 +937,26 @@
     /* RESPONSIVE */
     @media(max-width:360px) {
       .container {
-        padding: 10px;
+        padding: 12px 10px;
       }
 
       .card {
-        padding: 14px 12px;
-      }
-
-      .sticky-cta {
-        font-size: 0.78rem;
-        padding: 10px 14px;
+        padding: 20px 16px;
       }
 
       .hero-title {
-        font-size: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .teaser-card {
+        padding: 16px;
       }
     }
 
     @media(min-height:700px) {
       .container {
         justify-content: center;
-        min-height: calc(100dvh - 36px - 105px);
+        min-height: calc(100dvh - 36px);
       }
     }
   </style>
@@ -733,35 +1004,95 @@
   <!-- SPACER for fixed urgency bar -->
   <div class="urgency-spacer"></div>
 
-  <!-- FOOTER SPACER -->
-  <div class="footer-spacer"></div>
-
   <!-- MAIN CONTAINER -->
   <div class="container" role="main">
 
     <!-- HERO SECTION -->
     <section class="hero-section" id="hero-section">
+
+      <!-- Eyebrow -->
+      <div class="hero-eyebrow">
+        <svg viewBox="0 0 24 24" width="13" height="13"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+        حصري · مجاناً تماماً
+      </div>
+
+      <!-- Main Title -->
       <h1 class="hero-title" id="hero-title">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="#ccff00"
-          style="vertical-align:text-bottom;margin-left:4px">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H8l4-7v4h3l-4 7z" />
-        </svg>
-        جاهز لتعلم كيف تحلل مباريات كرة القدم باحترافية؟
+        اعرف السر الذي يجعل<br>
+        <span class="hero-highlight">التوقعات الرياضية</span><br>
+        تُصيب دائماً
       </h1>
-      <p class="hero-subtitle" id="hero-subtitle">
-        انضم لأكثر من <strong><span id="member-counter">0</span> عضو</strong> يتابعون تحليلاتنا الرياضية يومياً لتعزيز
-        فرص نجاحهم بشكل واقعي ومدروس!
-      </p>
+
+      <!-- Stats Row (replaces subtitle — id kept for JS compat) -->
+      <div class="hero-stats" id="hero-subtitle">
+        <div class="hstat">
+          <span class="hstat-num"><span id="member-counter">1430</span>+</span>
+          <span class="hstat-label">عضو نشط</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <span class="hstat-num">94%</span>
+          <span class="hstat-label">دقة التوقعات</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <span class="hstat-num">مجاناً</span>
+          <span class="hstat-label">100%</span>
+        </div>
+      </div>
+
     </section>
 
     <!-- START BUTTON -->
     <div class="start-wrap" id="start-wrap">
+
+      <!-- TRUST BADGES -->
+      <div class="trust-strip">
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" width="13" height="13"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span class="tb-val">+1,500</span> عضو
+        </div>
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" width="13" height="13"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          يستغرق <span class="tb-val">45 ث</span>
+        </div>
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" width="13" height="13"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+          مجاني 100%
+        </div>
+      </div>
+
+      <!-- TEASER CARD -->
+      <div class="teaser-card">
+        <div class="teaser-title">
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          ستكتشف بعد 45 ثانية:
+        </div>
+        <ul class="teaser-list">
+          <li>
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+            <span>السر الذي يجعل بعضهم يتوقع النتائج بدقة — ليس حظاً!</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+            <span>كيف تقرأ إحصائيات المباريات مثل المحترفين</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <span>وصول فوري لتحليلات حصرية داخل قناة VIP</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTA BUTTON -->
       <button id="start-survey-btn" class="btn-start" onclick="startSurvey()">
-        <svg viewBox="0 0 24 24" width="19" height="19">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-        نعم، أنا جاهز للبدء
+        <span class="btn-arrow">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+        ابدأ الآن — اكتشف السر
       </button>
+      <p class="btn-start-hint">سؤالان فقط · لا بيانات مطلوبة · مجاناً</p>
+
     </div>
 
     <!-- VIEW 1: SURVEY -->
@@ -794,28 +1125,46 @@
             <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
               <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
             </svg>
-            اكتملت الخطوة الأخيرة
+            اكتملت الخطوة الأخيرة ✓
           </div>
-          <h2 class="final-title">رابط قناة VIP جاهز لك!</h2>
+          <h2 class="final-title">رابط قناة VIP جاهز لك الآن!</h2>
           <p class="final-sub">انضم الآن واحصل على أول تحليل رياضي مدروس وعالي الدقة — للترفيه والتحليل.</p>
         </div>
 
+        <!-- URGENCY: Slots Remaining -->
+        <div class="slots-bar">
+          <span class="slots-dot"></span>
+          الأماكن المجانية المتبقية: <strong id="slots-count">7</strong> فقط من أصل 50
+        </div>
+
+        <!-- SOCIAL PROOF -->
+        <div class="social-proof">
+          <div class="social-avatars">
+            <span style="background:#1a6b3c;">ع</span>
+            <span style="background:#1a3a6b;">م</span>
+            <span style="background:#6b1a1a;">ك</span>
+            <span style="background:#4a1a6b;">س</span>
+            <span style="background:#6b4a1a;">ف</span>
+          </div>
+          <span>+131 عضو انضموا هذا الأسبوع</span>
+        </div>
+
         <!-- Main Telegram Button -->
-        <a href="https://t.me/mangaawy12" target="_blank" rel="noopener" class="tg-btn-main"
-          onclick="trackEvent('Telegram_Click','Final_Main_Button')">
+        <a id="tg-main-btn" href="https://t.me/mangaawy12" target="_blank" rel="noopener" class="tg-btn-main"
+          onclick="handleTelegramClick('Final_Main_Button')">
           <span class="tg-label">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
               <path
                 d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
             </svg>
-            الوصول لقناة الـ VIP الخاصة
+            انضم الآن لقناة الـ VIP
           </span>
-          <span class="tg-sublabel">تحليلات رياضية مدروسة — للترفيه والمعرفة</span>
+          <span class="tg-sublabel">تحليلات رياضية حصرية — مجاناً</span>
         </a>
 
         <!-- Secondary Direct Contact -->
         <a href="https://t.me/generalFady" target="_blank" rel="noopener" class="tg-btn-secondary"
-          onclick="trackEvent('Telegram_Click','Final_Direct_Contact')">
+          onclick="handleTelegramClick('Final_Direct_Contact')">
           <svg viewBox="0 0 24 24" width="17" height="17">
             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
           </svg>
@@ -825,17 +1174,52 @@
 
     </div><!-- /view-final -->
 
+      <!-- FOOTER SPACER (pushes content above fixed floating footer) -->
+      <div class="footer-spacer"></div>
+
   </div><!-- /container -->
 
 
 
   <script>
+    // ─── GA4 TRACKING (FIXED) ────────────────────────────────────────────────
     function trackEvent(action, label, value) {
       if (typeof gtag !== 'function') return;
-      gtag('event', action, { event_category: 'Engagement', event_label: label || '', value: value || 0 });
+      gtag('event', action, {
+        event_category: 'Engagement',
+        event_label: label || '',
+        value: value || 0
+      });
     }
 
-    // COUNTER
+    // Reliable exit tracking using sendBeacon
+    function trackExit(label) {
+      try {
+        var body = JSON.stringify({
+          v: '2',
+          tid: 'G-47XJL4GQJX',
+          cid: (localStorage.getItem('_cid') || Math.random().toString(36).substr(2)),
+          en: 'Page_Exit',
+          ep: { event_label: label }
+        });
+        navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=G-47XJL4GQJX&api_secret=REPLACE_WITH_API_SECRET', body);
+      } catch (e) {
+        trackEvent('Page_Exit', label, 0);
+      }
+    }
+
+    // Telegram click handler — fires BEFORE navigation so GA4 captures it
+    function handleTelegramClick(label) {
+      trackEvent('Telegram_Click', label, 1);
+      // decrement urgency slots
+      var el = document.getElementById('slots-count');
+      if (el) {
+        var n = parseInt(el.textContent, 10);
+        if (n > 1) el.textContent = n - 1;
+      }
+    }
+
+    // ─── COUNTER ─────────────────────────────────────────────────────────────
     function animateCounter(el, from, to, ms) {
       var start = null;
       function step(ts) {
@@ -848,35 +1232,35 @@
       requestAnimationFrame(step);
     }
 
-    // QUESTIONS
+    // ─── QUESTIONS ────────────────────────────────────────────────────────────
     var QUESTIONS = {
       start: {
         hookSvg: 'M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z',
         hookText: 'سر التحليل الرياضي',
         q: 'هل تساءلت يوماً كيف يتوقع البعض نتائج المباريات بدقة عالية بدلاً من الاعتماد على الحظ؟',
-        answers: [{ text: 'نعم، أريد معرفة كيف', next: 'q2_yes' }, { text: 'لا أهتم، سأكتفي بالمشاهدة', next: 'q2_no' }],
-        progress: 33
+        answers: [{ text: 'نعم، أريد معرفة كيف', next: 'q2_yes' }, { text: 'لا، سأكتفي بالمشاهدة', next: 'q2_no' }],
+        progress: 50
       },
       q2_yes: {
         hookSvg: 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z',
         hookText: 'ليس حظاً، بل تحليل',
-        q: "عظيم! السر يكمن في 'التوقعات الرياضية المدروسة'. هل لديك خبرة سابقة في التوقعات أم ترغب في التعلم من الصفر؟",
-        answers: [{ text: 'لدي خبرة سابقة', next: 'final' }, { text: 'أرغب في التعلم من الصفر', next: 'final' }],
-        progress: 66
+        q: 'ممتاز! هل لديك خبرة سابقة في متابعة التوقعات الرياضية؟',
+        answers: [{ text: 'نعم، لدي خبرة', next: 'final' }, { text: 'مبتدئ وأريد التعلم', next: 'final' }],
+        progress: 100
       },
       q2_no: {
         hookSvg: 'M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z',
         hookText: 'شاهد بنفسك',
-        q: 'هل أنت متشكك؟ هذا طبيعي! ما رأيك أن تتصفح التحليلات والنتائج السابقة بنفسك لتقطع الشك باليقين؟',
-        answers: [{ text: 'حسناً، سألقي نظرة على النتائج', next: 'final' }, { text: 'غير مهتم، أريد دليلاً', next: 'proof' }],
-        progress: 66
+        q: 'هل أنت متشكك؟ هذا طبيعي! تصفح النتائج السابقة بنفسك وستقتنع!',
+        answers: [{ text: 'حسناً، سألقي نظرة', next: 'final' }, { text: 'أريد دليلاً أولاً', next: 'proof' }],
+        progress: 100
       },
       proof: {
         hookSvg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z',
         hookText: 'النتائج تتحدث',
-        q: 'نحن نقدر صراحتك. لا تضطر لتصديقنا، بل ثق بالنتائج! اضغط للوصول إلى القناة وتصفح الإحصائيات الموثقة بأم عينك.',
-        answers: [{ text: 'موافق، دعني أرى التحليلات', next: 'final' }],
-        progress: 90
+        q: 'لا تصدقنا، ثق بالأرقام! ادخل القناة وشوف الإحصائيات بعينيك.',
+        answers: [{ text: 'موافق، دعني أرى', next: 'final' }],
+        progress: 100
       }
     };
 
@@ -933,35 +1317,40 @@
 
     function startSurvey() {
       trackEvent('Survey_Started', 'Start button clicked', 1);
-
-      // 1. Render content first while still hidden
       currentQ = 'start';
       renderQuestion();
-
-      // 2. Hide hero & start button
       document.getElementById('hero-section').classList.add('hidden');
       document.getElementById('start-wrap').style.display = 'none';
-
-      // 3. Make survey block-visible but let CSS control opacity/transform via .active
       var sv = document.getElementById('view-survey');
       sv.style.display = 'block';
-      // Remove any lingering inline styles from previous calls
       sv.style.opacity = '';
       sv.style.transform = '';
-      // Trigger transition: wait one frame for display:block to paint, then add .active
-      setTimeout(function () {
-        sv.classList.add('active');
-      }, 16);
+      setTimeout(function () { sv.classList.add('active'); }, 16);
     }
 
+    // ─── INIT ─────────────────────────────────────────────────────────────────
     window.addEventListener('DOMContentLoaded', function () {
+      // Persist CID for sendBeacon
+      if (!localStorage.getItem('_cid')) {
+        localStorage.setItem('_cid', Math.random().toString(36).substr(2) + Date.now().toString(36));
+      }
+
       var mEl = document.getElementById('member-counter');
-      if (mEl) animateCounter(mEl, 0, 1500, 1600);
-      setTimeout(function () { document.getElementById('hero-subtitle').style.opacity = '1'; }, 300);
+      if (mEl) animateCounter(mEl, 1430, 1500, 1800);
+      setTimeout(function () { document.getElementById('hero-subtitle').style.opacity = '1'; }, 350);
       var sw = document.getElementById('start-wrap');
-      sw.style.display = 'block';
-      setTimeout(function () { sw.classList.add('visible'); }, 400);
+      sw.style.display = 'flex'; /* flex not block — fixes layout conflict */
+      setTimeout(function () { sw.classList.add('visible'); }, 500);
       trackEvent('Session_Started', 'Page loaded', 1);
+
+      // Slots countdown — simulate real-time urgency
+      var slotsEl = document.getElementById('slots-count');
+      if (slotsEl) {
+        setTimeout(function () {
+          var n = parseInt(slotsEl.textContent, 10);
+          if (n > 1) { slotsEl.textContent = n - 1; }
+        }, 8000 + Math.random() * 7000);
+      }
 
       // Scroll depth
       var marks = { 25: false, 50: false, 75: false };
@@ -969,14 +1358,26 @@
         var h = document.body.scrollHeight - window.innerHeight;
         if (h <= 0) return;
         var pct = Math.round((window.scrollY / h) * 100);
-        [25, 50, 75].forEach(function (m) { if (!marks[m] && pct >= m) { marks[m] = true; trackEvent('Scroll_Depth', m + '%', m); } });
+        [25, 50, 75].forEach(function (m) {
+          if (!marks[m] && pct >= m) { marks[m] = true; trackEvent('Scroll_Depth', m + '%', m); }
+        });
       });
 
       // Time on page
-      [30, 60, 120].forEach(function (s) { setTimeout(function () { trackEvent('Time_On_Page', s + 's', s); }, s * 1000); });
+      [30, 60, 120].forEach(function (s) {
+        setTimeout(function () { trackEvent('Time_On_Page', s + 's', s); }, s * 1000);
+      });
     });
 
-    window.addEventListener('beforeunload', function () { trackEvent('Page_Exit', 'User leaving', 0); });
+    // Reliable exit event using sendBeacon fallback
+    window.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') {
+        trackExit('Tab hidden or closed');
+      }
+    });
+    window.addEventListener('pagehide', function () {
+      trackExit('Page hide event');
+    });
   </script>
 
 </body>
