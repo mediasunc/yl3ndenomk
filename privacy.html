@@ -1,70 +1,155 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سياسة الخصوصية | elkoranow.com</title>
-<meta name="description" content="سياسة الخصوصية الخاصة بموقع elkoranow.com">
+<title>سياسة الخصوصية | توقعات كرة القدم VIP</title>
+<meta name="description" content="سياسة الخصوصية الخاصة بموقع توقعات كرة القدم VIP">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Cairo',sans-serif;background:#050505;color:#e0e0e0;min-height:100vh;padding:20px 16px 40px;}
-.wrap{max-width:680px;margin:0 auto;}
-.back-link{display:inline-flex;align-items:center;gap:6px;color:#ccff00;text-decoration:none;font-weight:700;font-size:0.9rem;margin-bottom:24px;}
-.back-link svg{fill:#ccff00;}
-h1{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:900;color:#fff;margin-bottom:6px;}
-.updated{font-size:0.78rem;color:#555;margin-bottom:28px;}
-h2{font-size:1.05rem;font-weight:800;color:#ccff00;margin:24px 0 8px;}
-p,li{font-size:0.9rem;line-height:1.75;color:#aaa;}
-ul{padding-right:20px;margin-top:6px;}
-li{margin-bottom:4px;}
-.divider{border:none;border-top:1px solid rgba(255,255,255,0.07);margin:24px 0;}
-a{color:#ccff00;}
+:root{
+  --blue:#38b6f5;
+  --bg:#05080e;
+  --surface:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.08);
+  --border2:rgba(56,182,245,0.2);
+  --text:#eef2f7;--muted:#6b7d8f;--muted2:#3d4f60;
+  --green:#22d463;--yellow:#f5b731;
+  --r:16px;
+}
+html,body{width:100%;min-height:100vh;font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+.bg-noise{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 40% at 50% -5%,rgba(56,182,245,0.1) 0%,transparent 60%);
+}
+.page{position:relative;z-index:1;padding:28px 20px 64px;}
+.wrap{max-width:660px;margin:0 auto;}
+
+/* ── BACK LINK ── */
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--blue);text-decoration:none;font-weight:700;font-size:14px;
+  margin-bottom:28px;padding:8px 16px 8px 12px;
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:30px;transition:background .2s,border-color .2s;
+}
+.back-link:hover{background:rgba(56,182,245,0.08);border-color:rgba(56,182,245,0.35);}
+.back-link svg{fill:var(--blue);flex-shrink:0;}
+
+/* ── HEADER ── */
+.page-header{margin-bottom:28px;}
+.page-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;border:1px solid var(--border2);background:rgba(56,182,245,0.06);color:var(--blue);margin-bottom:12px;}
+h1{font-size:clamp(22px,6vw,28px);font-weight:900;color:var(--text);margin-bottom:6px;line-height:1.25;}
+.updated{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
+
+/* ── INTRO ── */
+.intro{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;font-size:14.5px;line-height:1.8;color:#9ab0c4;margin-bottom:4px;}
+.intro strong{color:var(--blue);}
+
+/* ── SECTIONS ── */
+.section{margin-bottom:0;}
+h2{
+  font-size:15px;font-weight:800;color:var(--blue);
+  margin:22px 0 10px;display:flex;align-items:center;gap:8px;
+}
+h2 .s-icon{font-size:16px;}
+p,li{font-size:13.5px;line-height:1.85;color:#8090a0;}
+ul{padding-right:18px;margin-top:8px;}
+li{margin-bottom:5px;}
+li::marker{color:var(--blue);}
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ── DISCLAIMER BOX ── */
+.disclaimer{background:rgba(245,183,49,0.06);border:1px solid rgba(245,183,49,0.2);border-radius:var(--r);padding:14px 18px;margin-top:10px;}
+.disclaimer p{color:#b09050;}
+.disclaimer strong{color:var(--yellow);}
+
+/* ── FOOTER NOTE ── */
+.footer-note{margin-top:28px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);font-size:11.5px;color:var(--muted2);line-height:1.75;text-align:center;}
 </style>
 </head>
 <body>
+<div class="bg-noise"></div>
+<div class="page">
 <div class="wrap">
+
+  <!-- BACK TO HOME -->
   <a href="index.html" class="back-link">
-    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-    العودة للصفحة الرئيسية
+    <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    الرجوع للصفحة الرئيسية
   </a>
 
-  <h1>سياسة الخصوصية</h1>
-  <p class="updated">آخر تحديث: يوليو 2026</p>
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-badge">⚽ قناة التوقعات</div>
+    <h1>سياسة الخصوصية</h1>
+    <div class="updated">آخر تحديث: يوليو 2026</div>
+  </div>
 
-  <p>نحن في <strong>elkoranow.com</strong> نلتزم بحماية خصوصيتك. توضح هذه السياسة كيفية تعاملنا مع أي بيانات تتعلق بزوار الموقع.</p>
+  <!-- INTRO -->
+  <div class="intro">
+    نلتزم بحماية خصوصيتك التامة. هذه الصفحة بتوضح ازاي بنتعامل مع أي بيانات متعلقة بزوار الموقع — <strong>بشفافية كاملة.</strong>
+  </div>
 
-  <hr class="divider">
+  <div class="divider"></div>
 
-  <h2>ما البيانات التي نجمعها؟</h2>
-  <p>هذا الموقع <strong>لا يجمع أي بيانات شخصية</strong> مباشرةً. ومع ذلك، قد تُجمع البيانات التالية تلقائياً عبر أدوات طرف ثالث:</p>
-  <ul>
-    <li>بيانات التصفح المجهولة (عنوان IP، نوع المتصفح، الجهاز)</li>
-    <li>صفحات تمت زيارتها والوقت المستغرق</li>
-    <li>مصدر الزيارة (من أين وصلت للموقع)</li>
-  </ul>
+  <!-- SECTION 1 -->
+  <div class="section">
+    <h2><span class="s-icon">📋</span> إيه البيانات اللي بنجمعها؟</h2>
+    <p>الموقع ده <strong style="color:#eef2f7;">مش بيجمع أي بيانات شخصية</strong> منك مباشرة. بس في بيانات بتتجمع تلقائياً عن طريق أدوات طرف تالت زي Google Analytics:</p>
+    <ul>
+      <li>بيانات التصفح المجهولة (عنوان IP، نوع المتصفح، الجهاز)</li>
+      <li>الصفحات اللي اتزارت والوقت المستغرق فيها</li>
+      <li>مصدر الزيارة (من فين وصلت للموقع)</li>
+    </ul>
+  </div>
 
-  <h2>Google Analytics</h2>
-  <p>نستخدم Google Analytics (GA4) لتتبع سلوك الزوار بشكل مجهول الهوية بهدف تحسين تجربة الموقع. لا يمكننا تحديد هويتك الشخصية من خلال هذه البيانات. يمكنك الاطلاع على <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">سياسة خصوصية Google</a>.</p>
+  <!-- SECTION 2 -->
+  <div class="section">
+    <h2><span class="s-icon">📊</span> Google Analytics</h2>
+    <p>بنستخدم Google Analytics (GA4) لتتبع سلوك الزوار بشكل مجهول الهوية — الهدف تحسين تجربة الموقع بس. مش ممكن نعرف هويتك الشخصية من خلال الداتا دي. تقدر تطلع على <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">سياسة خصوصية Google</a>.</p>
+  </div>
 
-  <h2>ملفات تعريف الارتباط (Cookies)</h2>
-  <p>يستخدم الموقع localStorage لحفظ بيانات العداد التنازلي فقط على جهازك، وهي بيانات لا تُرسل لأي خادم.</p>
+  <!-- SECTION 3 -->
+  <div class="section">
+    <h2><span class="s-icon">🍪</span> ملفات تعريف الارتباط (Cookies)</h2>
+    <p>الموقع بيستخدم التقنيات الأساسية بس عشان الصفحة تشتغل صح — مش بنخزن أي بيانات شخصية على أجهزتك.</p>
+  </div>
 
-  <h2>روابط خارجية</h2>
-  <p>يحتوي الموقع على روابط لقنوات تليجرام خارجية. نحن غير مسؤولين عن سياسات الخصوصية الخاصة بهذه المنصات.</p>
+  <!-- SECTION 4 -->
+  <div class="section">
+    <h2><span class="s-icon">🔗</span> روابط خارجية</h2>
+    <p>الموقع فيه روابط لقنوات تيليجرام خارجية. مش مسؤولين عن سياسات الخصوصية الخاصة بالمنصات دي — كل منصة عندها سياستها.</p>
+  </div>
 
-  <h2>إخلاء المسؤولية</h2>
-  <p>المحتوى المقدم على هذا الموقع هو <strong>للأغراض الترفيهية والتحليلية فقط</strong>، ولا يُعدّ ضماناً أو نصيحة استثمارية أو ضماناً لتحقيق أرباح. أي قرارات مالية هي مسؤوليتك الشخصية الكاملة.</p>
+  <!-- SECTION 5 — DISCLAIMER -->
+  <div class="section">
+    <h2><span class="s-icon">⚠️</span> إخلاء المسؤولية</h2>
+    <div class="disclaimer">
+      <p>المحتوى اللي بنقدمه هو <strong>للأغراض الترفيهية والتحليلية بس</strong>، ومش بيُعتبر ضمان أو نصيحة مالية أو ضمان ربح. أي قرارات بتاخدها هي مسؤوليتك الشخصية الكاملة. المراهنات فيها مخاطر — راهن بمسؤولية.</p>
+    </div>
+  </div>
 
-  <hr class="divider">
+  <!-- SECTION 6 -->
+  <div class="section">
+    <h2><span class="s-icon">💬</span> تواصل معانا</h2>
+    <p>لو عندك أي استفسار عن سياسة الخصوصية، تواصل معانا عبر قناتنا الرسمية على تيليجرام.</p>
+  </div>
 
-  <h2>التواصل معنا</h2>
-  <p>لأي استفسار بخصوص سياسة الخصوصية، يمكنك التواصل عبر تليجرام: <a href="https://t.me/generalFady" target="_blank" rel="noopener">@generalFady</a></p>
+  <div class="divider"></div>
 
-  <hr class="divider">
-  <p style="font-size:0.72rem;color:#444;">هذا الموقع ليس تابعاً لفيسبوك أو شركة Meta Platforms, Inc. وغير مدعوم منها بأي شكل.</p>
+  <!-- FOOTER -->
+  <div class="footer-note">
+    هذا الموقع غير تابع لفيسبوك أو شركة Meta Platforms, Inc. وغير مدعوم منها بأي شكل من الأشكال.
+  </div>
+
+</div>
 </div>
 </body>
 </html>
