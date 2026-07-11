@@ -3,26 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سياسة الخصوصية | توقعات كرة القدم VIP</title>
-<meta name="description" content="سياسة الخصوصية الخاصة بموقع توقعات كرة القدم VIP">
+<title>سياسة الخصوصية | جايزتك مستنياك</title>
+<meta name="description" content="سياسة الخصوصية الخاصة بموقع جايزتك مستنياك">
 <meta name="robots" content="noindex, nofollow">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-47XJL4GQJX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-47XJL4GQJX');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0; -webkit-tap-highlight-color:transparent;}
 :root{
-  --blue:#38b6f5;
-  --bg:#05080e;
-  --surface:rgba(255,255,255,0.04);
-  --border:rgba(255,255,255,0.08);
-  --border2:rgba(56,182,245,0.2);
-  --text:#eef2f7;--muted:#6b7d8f;--muted2:#3d4f60;
-  --green:#22d463;--yellow:#f5b731;
-  --r:16px;
+  --purple: #9333ea;
+  --purple-dark: #7c3aed;
+  --purple-light: #c084fc;
+  --mauve: #e9d5ff;
+  --pink: #d946ef;
+  --bg: #07050f;
+  --surface: rgba(147, 51, 234, 0.05);
+  --border: rgba(147, 51, 234, 0.15);
+  --border2: rgba(147, 51, 234, 0.3);
+  --text: #f0ecff;
+  --muted: #7c6fa0;
+  --muted2: #4a3d68;
+  --yellow: #f5b731;
+  --r: 16px;
 }
 html,body{width:100%;min-height:100vh;font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
 .bg-noise{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 40% at 50% -5%,rgba(56,182,245,0.1) 0%,transparent 60%);
+  background:radial-gradient(ellipse 60% 40% at 50% -5%,rgba(147,51,234,0.15) 0%,transparent 60%);
 }
 .page{position:relative;z-index:1;padding:28px 20px 64px;}
 .wrap{max-width:660px;margin:0 auto;}
@@ -30,17 +45,25 @@ html,body{width:100%;min-height:100vh;font-family:'Tajawal',sans-serif;backgroun
 /* ── BACK LINK ── */
 .back-link{
   display:inline-flex;align-items:center;gap:8px;
-  color:var(--blue);text-decoration:none;font-weight:700;font-size:14px;
+  color:var(--purple-light);text-decoration:none;font-weight:700;font-size:14px;
   margin-bottom:28px;padding:8px 16px 8px 12px;
   background:var(--surface);border:1px solid var(--border2);
   border-radius:30px;transition:background .2s,border-color .2s;
 }
-.back-link:hover{background:rgba(56,182,245,0.08);border-color:rgba(56,182,245,0.35);}
-.back-link svg{fill:var(--blue);flex-shrink:0;}
+.back-link:hover{background:rgba(147,51,234,0.1);border-color:rgba(147,51,234,0.4);}
+.back-link svg{fill:var(--purple-light);flex-shrink:0;}
 
 /* ── HEADER ── */
 .page-header{margin-bottom:28px;}
-.page-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;border:1px solid var(--border2);background:rgba(56,182,245,0.06);color:var(--blue);margin-bottom:12px;}
+.page-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;
+  border:1px solid var(--border2);background:rgba(147,51,234,0.08);color:var(--purple-light);margin-bottom:12px;
+}
+.page-badge svg {
+    width: 14px; height: 14px;
+    fill: none; stroke: var(--purple-light); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
 h1{font-size:clamp(22px,6vw,28px);font-weight:900;color:var(--text);margin-bottom:6px;line-height:1.25;}
 .updated{font-size:12px;color:var(--muted);margin-top:4px;}
 
@@ -48,21 +71,24 @@ h1{font-size:clamp(22px,6vw,28px);font-weight:900;color:var(--text);margin-botto
 .divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
 
 /* ── INTRO ── */
-.intro{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;font-size:14.5px;line-height:1.8;color:#9ab0c4;margin-bottom:4px;}
-.intro strong{color:var(--blue);}
+.intro{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;font-size:14.5px;line-height:1.8;color:var(--mauve);margin-bottom:4px;}
+.intro strong{color:var(--purple-light);}
 
 /* ── SECTIONS ── */
 .section{margin-bottom:0;}
 h2{
-  font-size:15px;font-weight:800;color:var(--blue);
+  font-size:16px;font-weight:800;color:var(--purple-light);
   margin:22px 0 10px;display:flex;align-items:center;gap:8px;
 }
-h2 .s-icon{font-size:16px;}
-p,li{font-size:13.5px;line-height:1.85;color:#8090a0;}
+h2 svg {
+  width: 20px; height: 20px;
+  fill: none; stroke: var(--pink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+p,li{font-size:13.5px;line-height:1.85;color:var(--muted);}
 ul{padding-right:18px;margin-top:8px;}
 li{margin-bottom:5px;}
-li::marker{color:var(--blue);}
-a{color:var(--blue);text-decoration:none;}
+li::marker{color:var(--purple-light);}
+a{color:var(--purple-light);text-decoration:none;}
 a:hover{text-decoration:underline;}
 
 /* ── DISCLAIMER BOX ── */
@@ -80,14 +106,17 @@ a:hover{text-decoration:underline;}
 <div class="wrap">
 
   <!-- BACK TO HOME -->
-  <a href="index.html" class="back-link">
+  <a href="index.html" class="back-link" id="backLink">
     <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
     الرجوع للصفحة الرئيسية
   </a>
 
   <!-- HEADER -->
   <div class="page-header">
-    <div class="page-badge">⚽ قناة التوقعات</div>
+    <div class="page-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        الأمان والخصوصية
+    </div>
     <h1>سياسة الخصوصية</h1>
     <div class="updated">آخر تحديث: يوليو 2026</div>
   </div>
@@ -101,8 +130,11 @@ a:hover{text-decoration:underline;}
 
   <!-- SECTION 1 -->
   <div class="section">
-    <h2><span class="s-icon">📋</span> إيه البيانات اللي بنجمعها؟</h2>
-    <p>الموقع ده <strong style="color:#eef2f7;">مش بيجمع أي بيانات شخصية</strong> منك مباشرة. بس في بيانات بتتجمع تلقائياً عن طريق أدوات طرف تالت زي Google Analytics:</p>
+    <h2>
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      إيه البيانات اللي بنجمعها؟
+    </h2>
+    <p>الموقع ده <strong style="color:var(--text);">مش بيجمع أي بيانات شخصية</strong> منك مباشرة. بس في بيانات بتتجمع تلقائياً عن طريق أدوات طرف تالت زي Google Analytics:</p>
     <ul>
       <li>بيانات التصفح المجهولة (عنوان IP، نوع المتصفح، الجهاز)</li>
       <li>الصفحات اللي اتزارت والوقت المستغرق فيها</li>
@@ -112,34 +144,49 @@ a:hover{text-decoration:underline;}
 
   <!-- SECTION 2 -->
   <div class="section">
-    <h2><span class="s-icon">📊</span> Google Analytics</h2>
-    <p>بنستخدم Google Analytics (GA4) لتتبع سلوك الزوار بشكل مجهول الهوية — الهدف تحسين تجربة الموقع بس. مش ممكن نعرف هويتك الشخصية من خلال الداتا دي. تقدر تطلع على <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">سياسة خصوصية Google</a>.</p>
+    <h2>
+      <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+      Google Analytics
+    </h2>
+    <p>بنستخدم Google Analytics (GA4) لتتبع سلوك الزوار بشكل مجهول الهوية — الهدف تحسين تجربة الموقع بس. مش ممكن نعرف هويتك الشخصية من خلال الداتا دي. تقدر تطلع على <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="ext-link">سياسة خصوصية Google</a>.</p>
   </div>
 
   <!-- SECTION 3 -->
   <div class="section">
-    <h2><span class="s-icon">🍪</span> ملفات تعريف الارتباط (Cookies)</h2>
+    <h2>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8.56 2.75c4.37 6.03 6.02 9.42 3.42 17.02"></path><path d="M12 22c-.6-1.5-1.07-2.9-1.39-4.14"></path><path d="M6 10h12"></path></svg>
+      ملفات تعريف الارتباط (Cookies)
+    </h2>
     <p>الموقع بيستخدم التقنيات الأساسية بس عشان الصفحة تشتغل صح — مش بنخزن أي بيانات شخصية على أجهزتك.</p>
   </div>
 
   <!-- SECTION 4 -->
   <div class="section">
-    <h2><span class="s-icon">🔗</span> روابط خارجية</h2>
-    <p>الموقع فيه روابط لقنوات تيليجرام خارجية. مش مسؤولين عن سياسات الخصوصية الخاصة بالمنصات دي — كل منصة عندها سياستها.</p>
+    <h2>
+      <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+      روابط خارجية
+    </h2>
+    <p>الموقع فيه روابط لمنصات خارجية. مش مسؤولين عن سياسات الخصوصية الخاصة بالمنصات دي — كل منصة عندها سياستها.</p>
   </div>
 
   <!-- SECTION 5 — DISCLAIMER -->
   <div class="section">
-    <h2><span class="s-icon">⚠️</span> إخلاء المسؤولية</h2>
+    <h2>
+      <svg viewBox="0 0 24 24" style="stroke: var(--yellow);"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+      إخلاء المسؤولية
+    </h2>
     <div class="disclaimer">
-      <p>المحتوى اللي بنقدمه هو <strong>للأغراض الترفيهية والتحليلية بس</strong>، ومش بيُعتبر ضمان أو نصيحة مالية أو ضمان ربح. أي قرارات بتاخدها هي مسؤوليتك الشخصية الكاملة. المراهنات فيها مخاطر — راهن بمسؤولية.</p>
+      <p>المحتوى اللي بنقدمه هو <strong>للأغراض الترفيهية والتحليلية بس</strong>، ومش بيُعتبر نصيحة مالية أو ضمان ربح. أي قرارات بتاخدها هي مسؤوليتك الشخصية الكاملة.</p>
     </div>
   </div>
 
   <!-- SECTION 6 -->
   <div class="section">
-    <h2><span class="s-icon">💬</span> تواصل معانا</h2>
-    <p>لو عندك أي استفسار عن سياسة الخصوصية، تواصل معانا عبر قناتنا الرسمية على تيليجرام.</p>
+    <h2>
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+      تواصل معانا
+    </h2>
+    <p>لو عندك أي استفسار عن سياسة الخصوصية، تواصل معانا عبر قنواتنا الرسمية.</p>
   </div>
 
   <div class="divider"></div>
@@ -151,5 +198,31 @@ a:hover{text-decoration:underline;}
 
 </div>
 </div>
+
+<script>
+/* ANALYTICS */
+function trackEvent(name, params) {
+  console.log('[GA]', name, params || '');
+  if (typeof gtag === 'function') gtag('event', name, params || {});
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  trackEvent('Privacy_Page_Viewed', { event_category: 'Engagement', event_label: 'Privacy Policy loaded' });
+  
+  var backLink = document.getElementById('backLink');
+  if (backLink) {
+    backLink.addEventListener('click', function() {
+      trackEvent('Privacy_Back_Click', { event_category: 'Navigation', event_label: 'Back to Home' });
+    });
+  }
+
+  var extLinks = document.querySelectorAll('.ext-link');
+  extLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      trackEvent('Privacy_External_Link_Click', { event_category: 'Navigation', event_label: link.href });
+    });
+  });
+});
+</script>
 </body>
 </html>
