@@ -1,83 +1,215 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شروط الاستخدام | elkoranow.com</title>
-<meta name="description" content="شروط الاستخدام الخاصة بموقع elkoranow.com">
+<title>الشروط والأحكام | جايزتك مستنياك</title>
+<meta name="description" content="الشروط والأحكام الخاصة بموقع جايزتك مستنياك">
 <meta name="robots" content="noindex, nofollow">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-47XJL4GQJX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-47XJL4GQJX');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Cairo',sans-serif;background:#050505;color:#e0e0e0;min-height:100vh;padding:20px 16px 40px;}
-.wrap{max-width:680px;margin:0 auto;}
-.back-link{display:inline-flex;align-items:center;gap:6px;color:#ccff00;text-decoration:none;font-weight:700;font-size:0.9rem;margin-bottom:24px;}
-.back-link svg{fill:#ccff00;}
-h1{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:900;color:#fff;margin-bottom:6px;}
-.updated{font-size:0.78rem;color:#555;margin-bottom:28px;}
-h2{font-size:1.05rem;font-weight:800;color:#ccff00;margin:24px 0 8px;}
-p,li{font-size:0.9rem;line-height:1.75;color:#aaa;}
-ul{padding-right:20px;margin-top:6px;}
-li{margin-bottom:4px;}
-.divider{border:none;border-top:1px solid rgba(255,255,255,0.07);margin:24px 0;}
-.warning-box{background:rgba(204,255,0,0.05);border:1px solid rgba(204,255,0,0.2);border-radius:10px;padding:14px 16px;margin:16px 0;}
-.warning-box p{color:#bcd44a;font-weight:700;}
-a{color:#ccff00;}
+*{box-sizing:border-box;margin:0;padding:0; -webkit-tap-highlight-color:transparent;}
+:root{
+  --c-main: #0ce418;
+  --c-main-hov: #40d62c;
+  --c-main-dark: #44ad36;
+  --c-accent: #9650cd;
+  --c-bg: #0f1512;
+  --c-surface: #062a20;
+  --border: rgba(12, 228, 24, 0.15);
+  --border2: rgba(12, 228, 24, 0.3);
+  --text: #ffffff;
+  --muted: #a3a586;
+  --muted2: #0c6f56;
+  --yellow: #f5b731;
+  --r: 16px;
+}
+html,body{width:100%;min-height:100vh;font-family:'Tajawal',sans-serif;background:var(--c-bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+.bg-noise{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 40% at 50% -5%,rgba(12,228,24,0.15) 0%,transparent 60%);
+}
+.page{position:relative;z-index:1;padding:28px 20px 64px;}
+.wrap{max-width:660px;margin:0 auto;}
+
+/* ── BACK LINK ── */
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--c-main);text-decoration:none;font-weight:700;font-size:14px;
+  margin-bottom:28px;padding:8px 16px 8px 12px;
+  background:var(--c-surface);border:1px solid var(--border2);
+  border-radius:30px;transition:background .2s,border-color .2s;
+}
+.back-link:hover{background:rgba(12,228,24,0.1);border-color:rgba(12,228,24,0.4);}
+.back-link svg{fill:var(--c-main);flex-shrink:0;}
+
+/* ── HEADER ── */
+.page-header{margin-bottom:28px;}
+.page-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;
+  border:1px solid var(--border2);background:rgba(12,228,24,0.08);color:var(--c-main);margin-bottom:12px;
+}
+.page-badge svg {
+    width: 14px; height: 14px;
+    fill: none; stroke: var(--c-main); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+h1{font-size:clamp(22px,6vw,28px);font-weight:900;color:var(--text);margin-bottom:6px;line-height:1.25;}
+.updated{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
+
+/* ── INTRO ── */
+.intro{background:var(--c-surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;font-size:14.5px;line-height:1.8;color:var(--muted);margin-bottom:4px;}
+.intro strong{color:var(--c-main);}
+
+/* ── SECTIONS ── */
+.section{margin-bottom:0;}
+h2{
+  font-size:16px;font-weight:800;color:var(--c-main);
+  margin:22px 0 10px;display:flex;align-items:center;gap:8px;
+}
+h2 svg {
+  width: 20px; height: 20px;
+  fill: none; stroke: var(--c-accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+p,li{font-size:13.5px;line-height:1.85;color:var(--muted);}
+ul{padding-right:18px;margin-top:8px;}
+li{margin-bottom:5px;}
+li::marker{color:var(--c-main);}
+a{color:var(--c-main);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ── DISCLAIMER BOX ── */
+.disclaimer{background:rgba(245,183,49,0.06);border:1px solid rgba(245,183,49,0.2);border-radius:var(--r);padding:14px 18px;margin-top:10px;}
+.disclaimer p{color:#b09050;}
+.disclaimer strong{color:var(--yellow);}
+
+/* ── FOOTER NOTE ── */
+.footer-note{margin-top:28px;padding:14px 18px;background:var(--c-surface);border:1px solid var(--border);border-radius:var(--r);font-size:11.5px;color:var(--muted);line-height:1.75;text-align:center;}
 </style>
 </head>
 <body>
+<div class="bg-noise"></div>
+<div class="page">
 <div class="wrap">
-  <a href="index.html" class="back-link">
-    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-    العودة للصفحة الرئيسية
+
+  <!-- BACK TO HOME -->
+  <a href="index.html" class="back-link" id="backLink">
+    <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    الرجوع للصفحة الرئيسية
   </a>
 
-  <h1>شروط الاستخدام</h1>
-  <p class="updated">آخر تحديث: يوليو 2026</p>
-
-  <p>باستخدامك لهذا الموقع، فإنك توافق على الشروط والأحكام التالية. يُرجى قراءتها بعناية قبل المتابعة.</p>
-
-  <hr class="divider">
-
-  <div class="warning-box">
-    <p>⚠️ تنبيه مهم: جميع التحليلات والتوقعات الرياضية المقدمة هي للأغراض الترفيهية والتحليلية فقط، وليست ضماناً لتحقيق أي أرباح مالية.</p>
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-badge">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        الشروط والأحكام
+    </div>
+    <h1>الشروط والأحكام</h1>
+    <div class="updated">آخر تحديث: يوليو 2026</div>
   </div>
 
-  <h2>١. طبيعة الخدمة</h2>
-  <p>يقدم هذا الموقع تحليلات رياضية مدروسة للأغراض الترفيهية والمعرفية. نحن <strong>لا نضمن</strong> أي نتائج مالية ولا نقدم نصائح استثمارية أو مالية مرخصة.</p>
+  <!-- INTRO -->
+  <div class="intro">
+    استخدامك لهذا الموقع يعني موافقتك الكاملة على <strong>الشروط والأحكام</strong> الموضحة أدناه. يرجى قراءتها بعناية قبل الاستخدام.
+  </div>
 
-  <h2>٢. إخلاء المسؤولية المالية</h2>
-  <ul>
-    <li>أي قرار مالي يتخذه المستخدم بناءً على محتوى الموقع هو مسؤوليته الشخصية الكاملة.</li>
-    <li>الموقع وأصحابه غير مسؤولين عن أي خسائر مالية قد تنتج عن استخدام المحتوى.</li>
-    <li>الأرقام والإحصاءات المذكورة هي للتوضيح فقط ولا تُعدّ وعداً بنتائج مماثلة.</li>
-  </ul>
+  <div class="divider"></div>
 
-  <h2>٣. استخدام الموقع</h2>
-  <p>يُسمح لك باستخدام الموقع بشكل شخصي وغير تجاري. يُحظر:</p>
-  <ul>
-    <li>نسخ أو إعادة توزيع محتوى الموقع لأغراض تجارية</li>
-    <li>استخدام الموقع بطرق تضر بالآخرين أو تنتهك القوانين المحلية</li>
-    <li>محاولة اختراق أو التلاعب بأنظمة الموقع</li>
-  </ul>
+  <!-- SECTION 1 -->
+  <div class="section">
+    <h2>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      استخدام الموقع
+    </h2>
+    <p>يتم توفير هذا الموقع كبوابة توجيهية (Landing Page) لعروض ومنصات خارجية.</p>
+    <ul>
+      <li>أنت توافق على استخدام الموقع لأغراض قانونية فقط.</li>
+      <li>يُمنع استخدام أي أدوات برمجية للعبث أو محاولة اختراق الموقع.</li>
+      <li>يجب أن تكون في السن القانوني المسموح به في بلدك لاستخدام المنصات التي نوجهك إليها.</li>
+    </ul>
+  </div>
 
-  <h2>٤. الملكية الفكرية</h2>
-  <p>جميع محتويات الموقع (نصوص، تصميم، كود) هي ملك لأصحاب الموقع ومحمية بموجب حقوق الملكية الفكرية.</p>
+  <!-- SECTION 2 -->
+  <div class="section">
+    <h2>
+      <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+      الروابط والمواقع الخارجية
+    </h2>
+    <p>الموقع يحتوي على روابط تنقلك إلى منصات ومواقع تابعة لجهات خارجية (طرف ثالث). نحن غير مسؤولين عن محتوى تلك المواقع، سياساتها، أو أي ضرر قد ينتج عن استخدامها. تعاملك مع تلك المواقع يكون على مسؤوليتك الخاصة بالكامل.</p>
+  </div>
 
-  <h2>٥. روابط الطرف الثالث</h2>
-  <p>يحتوي الموقع على روابط لمنصات خارجية (تليجرام). نحن غير مسؤولين عن محتوى هذه المنصات أو سياساتها.</p>
+  <!-- SECTION 3 -->
+  <div class="section">
+    <h2>
+      <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      المكافآت والجوائز
+    </h2>
+    <p>أي جوائز أو مكافآت يتم ذكرها على هذا الموقع (مثل "الجوائز السرية" أو "اللفات المجانية") هي عروض ترويجية مقدمة من المنصات الخارجية التي نروج لها.</p>
+    <ul>
+      <li>نحن لا نضمن حصولك على هذه الجوائز، حيث أن ذلك يخضع لشروط وأحكام المنصة المانحة.</li>
+      <li>المنصة المانحة لها الحق الكامل في إيقاف أو تعديل العرض في أي وقت دون الرجوع إلينا.</li>
+    </ul>
+  </div>
 
-  <h2>٦. التعديلات</h2>
-  <p>نحتفظ بالحق في تعديل هذه الشروط في أي وقت. استمرارك في استخدام الموقع بعد التعديل يعني موافقتك عليها.</p>
+  <!-- SECTION 4 — DISCLAIMER -->
+  <div class="section">
+    <h2>
+      <svg viewBox="0 0 24 24" style="stroke: var(--yellow);"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+      إخلاء المسؤولية التام
+    </h2>
+    <div class="disclaimer">
+      <p>المعلومات والمحتوى المقدم في هذا الموقع هو <strong>لأغراض تسويقية وترفيهية فقط</strong>. نحن لا نقدم أي استشارات مالية، ولا نضمن أي أرباح مالية. استخدامك للمنصات الخارجية وتسجيلك فيها يكون على عاتقك ومسؤوليتك الشخصية بالكامل.</p>
+    </div>
+  </div>
 
-  <hr class="divider">
+  <!-- SECTION 5 -->
+  <div class="section">
+    <h2>
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      تعديل الشروط
+    </h2>
+    <p>نحتفظ بالحق في تعديل هذه الشروط والأحكام في أي وقت دون إشعار مسبق. استمرارك في استخدام الموقع بعد إجراء أي تعديلات يُعد موافقة منك على الشروط الجديدة.</p>
+  </div>
 
-  <h2>التواصل معنا</h2>
-  <p>لأي استفسار بخصوص شروط الاستخدام: <a href="https://t.me/generalFady" target="_blank" rel="noopener">@generalFady</a></p>
+  <div class="divider"></div>
 
-  <hr class="divider">
-  <p style="font-size:0.72rem;color:#444;">هذا الموقع ليس تابعاً لفيسبوك أو شركة Meta Platforms, Inc. وغير مدعوم منها بأي شكل. | <a href="privacy.html" style="color:#555">سياسة الخصوصية</a></p>
+  <!-- FOOTER -->
+  <div class="footer-note">
+    هذا الموقع غير تابع لفيسبوك أو شركة Meta Platforms, Inc. وغير مدعوم منها بأي شكل من الأشكال.
+  </div>
+
 </div>
+</div>
+
+<script>
+/* ANALYTICS */
+function trackEvent(name, params) {
+  console.log('[GA]', name, params || '');
+  if (typeof gtag === 'function') gtag('event', name, params || {});
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  trackEvent('Terms_Page_Viewed', { event_category: 'Engagement', event_label: 'Terms Policy loaded' });
+  
+  var backLink = document.getElementById('backLink');
+  if (backLink) {
+    backLink.addEventListener('click', function() {
+      trackEvent('Terms_Back_Click', { event_category: 'Navigation', event_label: 'Back to Home' });
+    });
+  }
+});
+</script>
 </body>
 </html>
