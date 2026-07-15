@@ -3,14 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>جايزتك مستنياك</title>
-<meta name="description" content="جايزتك مستنياك — سجّل الآن واستلمها فوراً.">
+<title>بوابتك للجوائز الكبرى | اكتشف هديتك الحصرية</title>
+<meta name="description" content="سجل الآن في المنصة الأولى واكتشف هديتك السرية فوراً. انضم لقناة التليجرام وحمل التطبيق للمزيد من المفاجآت.">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="جايزتك مستنياك">
-<meta property="og:description" content="جايزتك مستنياك — سجّل الآن واستلمها فوراً.">
-<meta property="og:url" content="https://sb-afftour-worldscup.com/">
-<meta property="og:type" content="website">
 
+<!-- Google Tag Manager -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-47XJL4GQJX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,440 +17,400 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 
 :root {
-  --c1: #c084fc;
-  --c2: #d946ef;
-  --glowBtn: rgba(147,51,234,.6);
-  --glowBtnHov: rgba(147,51,234,.8);
+  --neon-green: #0ce418;
+  --neon-green-hov: #40d62c;
+  --cyber-purple: #9650cd;
+  --cyber-purple-dark: #644584;
+  
+  --bg-dark: #0f1512;
+  --surface-dark: #062a20;
+  --surface-light: #0c6f56;
+  --surface-accent: #0b4c3a;
+  
+  --text-main: #ffffff;
+  --text-muted: #a3a586;
+  
+  --glass-bg: rgba(6, 42, 32, 0.4);
+  --glass-border: rgba(12, 228, 24, 0.2);
+  
+  --glow-primary: rgba(12, 228, 24, 0.5);
+  --glow-secondary: rgba(150, 80, 205, 0.4);
 }
 
 html, body {
-  width:100%; height:100%;
-  font-family:'Tajawal',sans-serif;
-  background:#05030a;
-  color:#f0ecff;
-  -webkit-font-smoothing:antialiased;
-  overflow:hidden;
+  width: 100%; min-height: 100vh;
+  font-family: 'Tajawal', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* خلفية متحركة بالكامل (عشان الصفحة متكونش ميتة وستاتيك) */
-.bg-layer { position:fixed; inset:0; z-index:0; pointer-events:none; }
-.bg-grid {
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(147,51,234,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(147,51,234,.04) 1px, transparent 1px);
-  background-size:30px 30px;
-  animation: bg-pan 20s linear infinite;
+/* --- Animated Web3 Background --- */
+.bg-canvas {
+  position: fixed; inset: 0; z-index: -1;
+  background: radial-gradient(circle at 50% 0%, var(--surface-dark) 0%, var(--bg-dark) 70%);
 }
-.orb {
-  position:absolute; border-radius:50%; filter:blur(70px); opacity:0.45;
-  animation: float-orb 10s infinite ease-in-out alternate;
+.grid-overlay {
+  position: absolute; inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(12, 228, 24, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12, 228, 24, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+  animation: gridMove 15s linear infinite;
+  opacity: 0.6;
 }
-.orb-1 { width:350px; height:350px; background:#9333ea; top:-15%; left:-10%; animation-duration:12s; }
-.orb-2 { width:250px; height:250px; background:#d946ef; bottom:-10%; right:-10%; animation-duration:15s; animation-delay:-5s; }
-.orb-3 { width:200px; height:200px; background:#7c3aed; top:40%; left:50%; animation-duration:18s; animation-delay:-2s; }
+.ambient-glow {
+  position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.5;
+  animation: pulseGlow 8s infinite alternate ease-in-out;
+}
+.glow-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--surface-light); }
+.glow-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: var(--cyber-purple-dark); animation-delay: -4s; }
 
-/* ── الصفحة ── */
-.page {
-  position:relative; z-index:1;
-  height:100vh;
-  display:flex; flex-direction:column;
-  align-items:center; justify-content:center;
-  padding:0 24px;
-  text-align:center;
-  gap:0;
+/* --- Navbar --- */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  padding: 15px 5%;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(15, 21, 18, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 100;
 }
+.nav-logo {
+  font-weight: 900; font-size: 22px;
+  background: linear-gradient(90deg, #fff, var(--neon-green));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.nav-status {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--neon-green);
+  background: rgba(12, 228, 24, 0.1);
+  padding: 6px 14px; border-radius: 20px;
+  border: 1px solid var(--glass-border);
+}
+.live-dot { width: 8px; height: 8px; background: var(--neon-green); border-radius: 50%; animation: blink 1.5s infinite; }
 
-/* الأيقونة SVG - ثابتة وواضحة جداً بس بتعمل عومان (Floating) */
-.gift-svg-container {
-  margin-bottom: 22px;
-  filter: drop-shadow(0 10px 25px rgba(217,70,239,.4));
-  animation: float-gift 3.5s ease-in-out infinite;
+/* --- Hero Section --- */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 120px 20px 60px;
+  text-align: center;
+  position: relative;
 }
-.gift-svg {
-  width: clamp(80px, 25vw, 110px);
-  height: auto;
+.badge {
+  display: inline-block;
+  padding: 6px 16px; border-radius: 30px;
+  font-size: 14px; font-weight: 700; color: var(--neon-green);
+  background: rgba(12, 228, 24, 0.05);
+  border: 1px solid var(--neon-green);
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(12, 228, 24, 0.2);
+  animation: floatUp 1s ease-out both;
 }
-
-/* العنوان */
-h1 {
-  font-size:clamp(32px,9vw,52px);
-  font-weight:900;
-  line-height:1.15;
-  letter-spacing:-1px;
-  margin-bottom:10px;
-  background:linear-gradient(135deg, #fff 0%, var(--c1) 100%);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+.hero h1 {
+  font-size: clamp(36px, 8vw, 64px);
+  font-weight: 900; line-height: 1.1; margin-bottom: 16px;
+  text-shadow: 0 0 20px rgba(12, 228, 24, 0.3);
+  animation: slideUp 1s 0.2s ease-out both;
 }
-
-/* السطر الثاني */
-.sub {
-  font-size:clamp(14px,4vw,17px);
-  color:#7c6fa0;
-  margin-bottom:36px;
-  line-height:1.7;
+.hero h1 span {
+  color: var(--neon-green);
 }
-.sub strong { color:var(--c1); font-weight:700; }
-
-/* الزر */
-.btn {
-  display:flex; align-items:center; justify-content:center; gap:12px;
-  width:100%; max-width:380px;
-  background:linear-gradient(135deg,#7c3aed 0%,#9333ea 50%,#d946ef 100%);
-  background-size:200% 100%;
-  color:#fff;
-  padding:clamp(18px,5vw,24px) 28px;
-  border-radius:18px;
-  font-family:'Tajawal',sans-serif;
-  font-size:clamp(18px,5vw,22px);
-  font-weight:900;
-  border:none; cursor:pointer;
-  text-decoration:none;
-  box-shadow:0 14px 55px var(--glowBtn), 0 2px 0 rgba(255,255,255,.15) inset;
-  transition:transform .18s cubic-bezier(.22,1,.36,1), box-shadow .18s, background-position .4s;
-  position:relative; overflow:hidden;
-  animation:glow 2.6s ease-in-out infinite;
-}
-.btn::before {
-  content:'';
-  position:absolute; top:0; left:-140%; width:50%; height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
-  animation:shine 2.4s .5s infinite;
-}
-.btn::after {
-  content:'';
-  position:absolute; inset:-5px;
-  border-radius:23px;
-  border:2px solid var(--glowBtnHov);
-  animation:ring 2.2s ease-in-out infinite;
-  pointer-events:none;
-}
-.btn:hover { transform:translateY(-3px); background-position:100%; box-shadow:0 22px 65px var(--glowBtnHov),0 2px 0 rgba(255,255,255,.15) inset; }
-.btn:active { transform:scale(0.97); }
-.btn-icon { width:24px; height:24px; pointer-events:none; flex-shrink:0; fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.btn-txt  { pointer-events:none; }
-
-/* العداد */
-.timer {
-  margin-top:14px;
-  font-size:12px; color:#4a3d68; font-weight:600;
-}
-.timer b { color:var(--c1); }
-
-/* privacy */
-.priv {
-  position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
-  z-index:1; font-size:11px; color:rgba(124,111,160,.4);
-  text-decoration:none; transition:color .2s;
-}
-.priv:hover { color:#7c6fa0; }
-
-/* ═══════════════ EXIT POPUP ═══════════════ */
-.overlay {
-  display:none;
-  position:fixed; inset:0; z-index:9999;
-  background:rgba(4,2,14,.9);
-  backdrop-filter:blur(8px);
-  align-items:center; justify-content:center;
-  padding:20px;
-}
-.overlay.show { display:flex; }
-
-.popup {
-  width:100%; max-width:330px;
-  background:linear-gradient(155deg,#110b26,#1a1037);
-  border:1px solid rgba(147,51,234,.38);
-  border-radius:22px;
-  padding:30px 22px 24px;
-  text-align:center;
-  position:relative;
-  box-shadow:0 30px 80px rgba(147,51,234,.3);
-  animation:pop-in .35s cubic-bezier(.22,1,.36,1) both;
-}
-.popup::before {
-  content:'';
-  position:absolute; top:0; left:0; right:0; height:2px;
-  border-radius:22px 22px 0 0;
-  background:linear-gradient(90deg,transparent,#9333ea,#d946ef,transparent);
-}
-.pop-close {
-  position:absolute; top:13px; left:13px;
-  width:28px; height:28px; border-radius:50%;
-  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
-  display:flex; align-items:center; justify-content:center;
-  font-size:13px; cursor:pointer; color:#7c6fa0;
-  transition:all .2s;
-}
-.pop-close:hover { background:rgba(255,255,255,.12); color:#fff; }
-
-.pop-icon-svg {
-  width: 48px; height: 48px;
-  margin-bottom: 12px;
-  fill: none;
-  stroke: #d946ef;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  animation: shake .4s .1s both;
+.hero p {
+  font-size: clamp(16px, 4vw, 20px);
+  color: var(--text-muted);
+  max-width: 600px; line-height: 1.6;
+  margin-bottom: 40px;
+  animation: slideUp 1s 0.4s ease-out both;
 }
 
-.pop-title {
-  font-size:clamp(18px,5.5vw,22px);
-  font-weight:900; line-height:1.2; margin-bottom:8px;
-  background:linear-gradient(135deg,#fff,#e9d5ff);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+/* --- Buttons Focus --- */
+.action-grid {
+  display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 500px;
+  animation: slideUp 1s 0.6s ease-out both;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 10;
 }
 
-.pop-body { font-size:14px; color:#7c6fa0; line-height:1.7; margin-bottom:18px; }
-.pop-body strong { color:#e9d5ff; }
-
-.pop-btn {
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  width:100%;
-  background:linear-gradient(135deg,#7c3aed,#9333ea,#d946ef);
-  color:#fff; padding:16px 20px;
-  border-radius:13px;
-  font-family:'Tajawal',sans-serif;
-  font-size:clamp(15px,4.5vw,18px); font-weight:900;
-  border:none; cursor:pointer; text-decoration:none;
-  box-shadow:0 8px 35px rgba(147,51,234,.45);
-  transition:transform .18s, box-shadow .18s;
-  position:relative; overflow:hidden;
+.btn-web3 {
+  position: relative;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  width: 100%; padding: 22px 24px;
+  border-radius: 18px;
+  font-family: 'Tajawal', sans-serif; font-size: 22px; font-weight: 900;
+  color: #fff; text-decoration: none;
+  background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface-accent) 100%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+  overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  backdrop-filter: blur(5px);
 }
-.pop-btn::before {
-  content:'';
-  position:absolute; top:0; left:-140%; width:50%; height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
-  animation:shine 2.2s .3s infinite;
+.btn-web3::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%); transition: 0.5s;
 }
-.pop-btn:hover { transform:translateY(-2px); box-shadow:0 14px 45px rgba(147,51,234,.62); }
-.pop-btn:active { transform:scale(0.97); }
-.pop-btn-icon { width:18px; height:18px; fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+.btn-web3:hover { transform: translateY(-5px); box-shadow: 0 15px 40px var(--glow-primary); border-color: var(--neon-green); }
+.btn-web3:hover::before { animation: shineBtn 1.5s infinite; }
+.btn-web3:active { transform: translateY(0); }
 
-.pop-skip {
-  display:block; margin-top:12px;
-  font-size:11px; color:rgba(124,111,160,.45);
-  cursor:pointer; background:none; border:none;
-  font-family:'Tajawal',sans-serif;
-  text-decoration:underline; text-underline-offset:3px;
-  transition:color .2s;
+.btn-primary {
+  background: linear-gradient(135deg, var(--neon-green) 0%, var(--surface-light) 100%);
+  color: var(--bg-dark); border: none;
+  box-shadow: 0 0 40px var(--glow-primary);
+  transform: scale(1.05); /* Make the main CTA slightly larger to grab attention */
 }
-.pop-skip:hover { color:#7c6fa0; }
+.btn-primary .btn-icon { stroke: var(--bg-dark); }
+.btn-primary:hover { box-shadow: 0 0 60px var(--neon-green); border: 1px solid #fff; transform: scale(1.08) translateY(-5px); }
 
-/* ── animations ── */
-@keyframes bg-pan     { 0%{background-position:0 0} 100%{background-position:30px 30px} }
-@keyframes float-orb  { 0% {transform: translate(0, 0) scale(1);} 100% {transform: translate(30px, -40px) scale(1.1);} }
-@keyframes float-gift { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-@keyframes glow       { 0%,100%{box-shadow:0 14px 55px var(--glowBtn),0 2px 0 rgba(255,255,255,.15) inset} 50%{box-shadow:0 20px 70px var(--glowBtnHov),0 2px 0 rgba(255,255,255,.15) inset} }
-@keyframes shine      { 0%{left:-140%} 100%{left:230%} }
-@keyframes ring       { 0%,100%{opacity:0;transform:scale(1)} 50%{opacity:1;transform:scale(1.025)} }
-@keyframes pop-in     { from{opacity:0;transform:scale(.86) translateY(22px)} to{opacity:1;transform:scale(1) translateY(0)} }
-@keyframes shake      { 0%,100%{transform:rotate(0)} 20%{transform:rotate(-9deg)} 40%{transform:rotate(9deg)} 60%{transform:rotate(-5deg)} 80%{transform:rotate(5deg)} }
+.btn-telegram {
+  background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
+  box-shadow: 0 10px 30px rgba(42, 171, 238, 0.3);
+}
+.btn-telegram:hover { box-shadow: 0 15px 40px rgba(42, 171, 238, 0.5); border-color: #fff; }
+
+.btn-content { display: flex; flex-direction: column; align-items: center; }
+.btn-text { font-size: 22px; }
+.btn-sub { font-size: 13px; font-weight: 700; opacity: 0.85; margin-top: 6px; }
+.btn-icon { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* --- Progress / Scarcity --- */
+.scarcity-box {
+  width: 100%; max-width: 450px;
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  border-radius: 16px; padding: 20px;
+  backdrop-filter: blur(10px);
+  animation: slideUp 1s 0.8s ease-out both;
+}
+.scarcity-text { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--text-muted); }
+.scarcity-text span { color: var(--neon-green); }
+.progress-bar { width: 100%; height: 8px; background: rgba(0,0,0,0.5); border-radius: 4px; overflow: hidden; position: relative; }
+.progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 85%; background: var(--neon-green); border-radius: 4px; box-shadow: 0 0 10px var(--neon-green); animation: pulseWidth 2s infinite alternate; }
+
+/* --- Live Toast Notification --- */
+.toast-container {
+  position: fixed; bottom: 20px; left: 20px; z-index: 1000;
+  display: flex; flex-direction: column; gap: 10px; pointer-events: none;
+}
+.toast {
+  background: rgba(15, 21, 18, 0.9); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px); padding: 12px 20px; border-radius: 12px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transform: translateX(-120%); opacity: 0; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.toast.show { transform: translateX(0); opacity: 1; }
+.toast-icon { width: 32px; height: 32px; background: rgba(12, 228, 24, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--neon-green); }
+.toast-icon svg { width: 18px; height: 18px; stroke: var(--neon-green); }
+.toast-text { font-size: 13px; color: var(--text-muted); }
+.toast-text strong { color: #fff; font-family: monospace; letter-spacing: 1px; }
+
+/* --- Exit Intent Modal (Web3 Style) --- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px);
+  z-index: 9999; display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: 0.3s;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-box {
+  background: var(--bg-dark); width: 90%; max-width: 400px;
+  border: 1px solid var(--cyber-purple); border-radius: 24px;
+  padding: 40px 30px; text-align: center;
+  box-shadow: 0 0 50px rgba(150, 80, 205, 0.3), inset 0 0 20px rgba(150, 80, 205, 0.1);
+  transform: scale(0.9) translateY(20px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative; overflow: hidden;
+}
+.modal-overlay.active .modal-box { transform: scale(1) translateY(0); }
+.modal-box::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--neon-green), var(--cyber-purple));
+}
+.modal-icon { width: 60px; height: 60px; margin: 0 auto 20px; animation: pulseGlow 2s infinite; }
+.modal-icon svg { width: 100%; height: 100%; stroke: var(--cyber-purple); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.modal-title { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 12px; }
+.modal-desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 30px; }
+.modal-desc strong { color: var(--neon-green); }
+.modal-close { position: absolute; top: 15px; left: 15px; background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; transition: 0.2s; }
+.modal-close:hover { color: #fff; transform: rotate(90deg); }
+
+/* --- Animations --- */
+@keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 0 40px; } }
+@keyframes pulseGlow { 0% { opacity: 0.3; transform: scale(0.9); } 100% { opacity: 0.7; transform: scale(1.1); } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes floatUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes shineBtn { 100% { transform: translateX(200%); } }
+@keyframes pulseWidth { 0% { width: 85%; } 100% { width: 88%; } }
+
 </style>
 </head>
-
 <body>
 
-<!-- خلفية متحركة -->
-<div class="bg-layer">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="bg-grid"></div>
-</div>
+<!-- Animated Background -->
+<div class="bg-canvas"></div>
+<div class="grid-overlay"></div>
+<div class="ambient-glow glow-1"></div>
+<div class="ambient-glow glow-2"></div>
 
-<!-- EXIT POPUP -->
-<div class="overlay" id="overlay" role="dialog" aria-modal="true">
-  <div class="popup">
-    <button class="pop-close" id="popClose" aria-label="إغلاق">✕</button>
-    <svg class="pop-icon-svg" viewBox="0 0 24 24">
-      <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-    </svg>
-    <div class="pop-title">جايزتك هتتمسح!</div>
-    <div class="pop-body">لو غلقت الصفحة دلوقتي هتفقد الـ <strong>150 لفّة المجانية</strong> اللي محجوزة ليك في حسابك</div>
-    <a
-      class="pop-btn"
-      id="btnExit"
-      href="https://refpa0320.com/L?tag=d_5170620m_126598c_&site=5170620&ad=126598"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg class="pop-btn-icon" viewBox="0 0 24 24">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
-      <span>استلم جايزتك الآن</span>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-logo">
+    جايزتك مستنياك
+  </div>
+  <div class="nav-status">
+    <div class="live-dot"></div> مباشر الآن
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="badge">🚀 فرصة حصرية لفترة محدودة</div>
+  
+  <h1>سجل الآن و <span>اكتشف هديتك</span></h1>
+  <p>أنت على بعد خطوة واحدة من تفعيل هديتك في حسابك. انضم إلى الآلاف وابدأ فرصتك اليوم.</p>
+
+  <!-- CTA Buttons Front and Center -->
+  <div class="action-grid">
+    <a href="https://lxzsdfgw.xyz/L?tag=d_5851618m_105936c_&site=5851618&ad=105936&r=ar" target="_blank" rel="noopener" class="btn-web3 btn-primary" id="btnMain">
+      <svg class="btn-icon" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
+      <div class="btn-content">
+        <span class="btn-text">التسجيل واستلام المكافأة</span>
+        <span class="btn-sub">الذهاب للموقع الرسمي (خطوة 1)</span>
+      </div>
     </a>
-    <button class="pop-skip" id="popSkip">لأ، مش محتاج الجايزة</button>
-  </div>
-</div>
 
-<!-- PAGE -->
-<div class="page">
+    <a href="https://lxzsdfgw.xyz/L?tag=d_5851618m_126154c_&site=5851618&ad=126154" target="_blank" rel="noopener" class="btn-web3" id="btnAndroid">
+      <svg class="btn-icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+      <div class="btn-content">
+        <span class="btn-text">تحميل تطبيق الأندرويد</span>
+        <span class="btn-sub">احصل على هدايا إضافية (خطوة 2)</span>
+      </div>
+    </a>
 
-  <!-- أيقونة هدية مليانة وثابتة بس بتطوف في مكانها -->
-  <div class="gift-svg-container">
-    <svg class="gift-svg" viewBox="0 0 24 24">
-      <defs>
-        <linearGradient id="giftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#c084fc"/>
-          <stop offset="100%" stop-color="#d946ef"/>
-        </linearGradient>
-      </defs>
-      <path fill="url(#giftGrad)" d="M22 6h-4.5c.3-.3.5-.8.5-1.5 0-1.9-2.2-3.5-4.5-2.5-1.1.5-1.5 1.4-1.5 2 0-.6-.4-1.5-1.5-2-2.3-1-4.5.6-4.5 2.5 0 .7.2 1.2.5 1.5H2v5h2v11h16V11h2V6zm-10-1.5c0-.6 1.3-1.5 2.5-.9.8.4.8 1.4.2 1.9L12 7.5V4.5zm-3.2-.9c1.2-.6 2.5.3 2.5.9v3L8.6 5.5c-.6-.5-.6-1.5.2-1.9zM4 8h7v2H4V8zm2 13v-9h5v9H6zm7 0v-9h5v9h-5zm7-11h-7V8h7v2z"/>
-    </svg>
+    <a href="https://t.me/+cJey-Rg4ziQyMmUx" target="_blank" rel="noopener" class="btn-web3 btn-telegram" id="btnTelegram">
+      <svg class="btn-icon" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      <div class="btn-content">
+        <span class="btn-text">انضم لمجتمع التليجرام</span>
+        <span class="btn-sub">تحديثات وجوائز سرية (خطوة 3)</span>
+      </div>
+    </a>
   </div>
 
-  <h1>جايزتك مستنياك</h1>
+  <!-- Scarcity -->
+  <div class="scarcity-box">
+    <div class="scarcity-text">
+      <span>الأماكن المتبقية لتفعيل الجائزة:</span>
+      <span id="spotsLeft">14 / 150</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
+</section>
 
-  <p class="sub">
-    سجل الآن و <strong>150 لفّة مجانية</strong> هتنزل في حسابك فوراً
-  </p>
+<!-- Toasts Container -->
+<div class="toast-container" id="toastContainer"></div>
 
-  <a
-    class="btn"
-    id="btnMain"
-    href="https://refpa0320.com/L?tag=d_5170620m_126598c_&site=5170620&ad=126598"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <svg class="btn-icon" viewBox="0 0 24 24">
-      <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    </svg>
-    <span class="btn-txt">سجل الان واحصل علي اللفات المجانيه !</span>
-  </a>
-
-  <div class="timer">⏳ الجايزة متاحة لمدة: <b id="timerVal">--:--</b></div>
-
+<!-- Exit Intent Modal -->
+<div class="modal-overlay" id="exitModal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeModal">&times;</button>
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    </div>
+    <h3 class="modal-title">تحذير: رصيدك سيفقد!</h3>
+    <p class="modal-desc">لقد تم تجهيز <strong>جائزة سرية لك</strong>، إذا غادرت الصفحة الآن قد تذهب لشخص آخر. هل أنت متأكد من المغادرة؟</p>
+    <a href="https://lxzsdfgw.xyz/L?tag=d_5851618m_105936c_&site=5851618&ad=105936&r=ar" target="_blank" rel="noopener" class="btn-web3 btn-primary" id="btnExitModal" style="width:100%; padding: 14px;">
+      <span class="btn-text" style="font-size: 18px;">لا، أريد استلام جائزتي</span>
+    </a>
+  </div>
 </div>
-
-<a class="priv" href="privacy.html" id="privacyLink">سياسة الخصوصية</a>
 
 <script>
-/* ANALYTICS */
+/* Tracking */
 function trackEvent(name, params) {
-  console.log('[GA]', name, params || '');
+  console.log('[GA]', name, params);
   if (typeof gtag === 'function') gtag('event', name, params || {});
 }
 
-/* COUNTDOWN */
-function startCountdown() {
-  var mins = 38 + Math.floor(Math.random() * 18);
-  var secs = Math.floor(Math.random() * 59);
-  function fmt() { return String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0'); }
-  function tick() {
-    var el = document.getElementById('timerVal');
-    if (el) el.textContent = fmt();
-    if (secs <= 0) {
-      if (mins <= 0) { trackEvent('Urgency_Timer_Expired', { event_category: 'Engagement' }); return; }
-      mins--; secs = 59;
-    } else { secs--; }
-    setTimeout(tick, 1000);
-  }
-  tick();
-}
+/* Fake Live Social Proof Toasts */
+const container = document.getElementById('toastContainer');
 
-/* CTA EVENTS */
-function initCTA() {
-  var btn = document.getElementById('btnMain');
-  var privLink = document.getElementById('privacyLink');
+function showToast() {
+  const randomId = Math.floor(Math.random() * 900) + 100; // generates 100-999
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `
+    <div class="toast-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    </div>
+    <div class="toast-text">
+      المستخدم <strong>ID:${randomId}***</strong> للتو قام بتفعيل جائزة سرية!
+    </div>
+  `;
+  container.appendChild(toast);
   
-  if (!btn) return;
-  var maxScroll = 0;
-  window.addEventListener('scroll', function() {
-    var depth = Math.round((window.scrollY / Math.max(document.body.scrollHeight - window.innerHeight, 1)) * 100);
-    if (depth > maxScroll) maxScroll = depth;
-  }, { passive: true });
-
-  btn.addEventListener('click', function() {
-    trackEvent('CTA_Click',      { event_category: 'Engagement', event_label: 'Main_CTA_Button', value: 1 });
-    trackEvent('Telegram_Click', { event_category: 'Engagement', event_label: 'affiliate_cta',   value: 1 });
-    trackEvent('Offer_Click',    { event_category: 'Conversion', event_label: 'offer_plus_bonuses_plus_game', scroll_depth: maxScroll, value: 1 });
+  // Show
+  requestAnimationFrame(() => {
+    setTimeout(() => toast.classList.add('show'), 100);
   });
+  
+  // Hide & Remove
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 500);
+  }, 4000);
 
-  if (privLink) {
-    privLink.addEventListener('click', function() {
-      trackEvent('Privacy_Click', { event_category: 'Navigation', event_label: 'Footer_Privacy_Link' });
-    });
+  // Next toast random interval 5s - 12s
+  setTimeout(showToast, Math.random() * 7000 + 5000);
+}
+setTimeout(showToast, 2000);
+
+/* Scarcity Counter */
+let spots = 14;
+const spotsEl = document.getElementById('spotsLeft');
+function decreaseSpots() {
+  if (spots > 3) {
+    spots--;
+    spotsEl.textContent = `${spots} / 150`;
+    setTimeout(decreaseSpots, Math.random() * 15000 + 10000);
   }
 }
+setTimeout(decreaseSpots, 8000);
 
-/* SECTION TRACKING */
-function initSectionTracking() {
-  if (!('IntersectionObserver' in window)) return;
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting && e.target.dataset.track) {
-        trackEvent(e.target.dataset.track, { event_category: 'Visibility' });
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  var el = document.getElementById('btnMain');
-  if (el) { el.dataset.track = 'CTA_Button_Visible'; io.observe(el); }
+/* Exit Intent Modal */
+let modalShown = false;
+const exitModal = document.getElementById('exitModal');
+const closeModal = document.getElementById('closeModal');
+
+function showExitModal() {
+  if (modalShown) return;
+  modalShown = true;
+  exitModal.classList.add('active');
+  trackEvent('Exit_Intent_Shown', { event_category: 'Engagement' });
 }
 
-/* EXIT INTENT */
-function initExitIntent() {
-  var overlay = document.getElementById('overlay');
-  var shown   = false;
+document.addEventListener('mouseleave', e => { if (e.clientY <= 10) showExitModal(); });
+closeModal.addEventListener('click', () => exitModal.classList.remove('active'));
+exitModal.addEventListener('click', e => { if(e.target === exitModal) exitModal.classList.remove('active'); });
 
-  function show() {
-    if (shown) return;
-    shown = true;
-    overlay.classList.add('show');
-    trackEvent('Exit_Intent_Shown', { event_category: 'Engagement', event_label: 'Exit_Popup' });
-  }
-  function hide() {
-    overlay.classList.remove('show');
-    trackEvent('Exit_Intent_Closed', { event_category: 'Engagement', event_label: 'Exit_Popup_Dismissed' });
-  }
+/* Button Clicks */
+document.getElementById('btnMain').addEventListener('click', () => trackEvent('CTA_Main_Click', { event_category: 'Conversion' }));
+document.getElementById('btnAndroid').addEventListener('click', () => trackEvent('CTA_Android_Click', { event_category: 'Conversion' }));
+document.getElementById('btnTelegram').addEventListener('click', () => trackEvent('CTA_Telegram_Click', { event_category: 'Conversion' }));
+document.getElementById('btnExitModal').addEventListener('click', () => trackEvent('CTA_ExitModal_Click', { event_category: 'Conversion' }));
 
-  document.addEventListener('mouseleave', function(e) { if (e.clientY <= 10) show(); });
-
-  var lastY = 0, upCount = 0;
-  window.addEventListener('scroll', function() {
-    var y = window.scrollY;
-    if (lastY - y > 55) { upCount++; if (upCount >= 2 && y < 100) show(); } else upCount = 0;
-    lastY = y;
-  }, { passive: true });
-
-  document.getElementById('popClose').addEventListener('click', hide);
-  document.getElementById('popSkip').addEventListener('click', function() {
-    hide();
-    trackEvent('Exit_Intent_Skipped', { event_category: 'Engagement', event_label: 'Exit_Popup_Skip' });
-  });
-  document.getElementById('btnExit').addEventListener('click', function() {
-    trackEvent('CTA_Click',      { event_category: 'Engagement', event_label: 'Exit_Popup_CTA',    value: 1 });
-    trackEvent('Telegram_Click', { event_category: 'Engagement', event_label: 'affiliate_cta_exit', value: 1 });
-    trackEvent('Offer_Click',    { event_category: 'Conversion', event_label: 'exit_popup_offer',   value: 1 });
-  });
-  overlay.addEventListener('click', function(e) { if (e.target === overlay) hide(); });
-}
-
-/* INIT */
-function init() {
-  if (!localStorage.getItem('_cid')) {
-    localStorage.setItem('_cid', Math.random().toString(36).substr(2,9) + Date.now().toString(36));
-  }
-  trackEvent('Session_Started', { event_category: 'Engagement', event_label: 'Landing Page loaded' });
-  [15, 30, 60].forEach(function(s) {
-    setTimeout(function() {
-      trackEvent('Time_On_Page', { event_category: 'Engagement', event_label: s + 's', value: s });
-    }, s * 1000);
-  });
-  startCountdown();
-  initCTA();
-  initSectionTracking();
-  initExitIntent();
-}
-
-window.addEventListener('DOMContentLoaded', init);
 </script>
+
 </body>
 </html>
