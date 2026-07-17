@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>بوابتك للجوائز الكبرى | اكتشف هديتك الحصرية</title>
-<meta name="description" content="سجل الآن في المنصة الأولى واكتشف هديتك السرية فوراً. انضم لقناة التليجرام وحمل التطبيق للمزيد من المفاجآت.">
+<title>فانسبورت — المكافأة الترحيبية الحصرية | سجل الآن</title>
+<meta name="description" content="احصل على مكافأتك الترحيبية الحصرية من فانسبورت. خطوة واحدة تفصلك عن التسجيل واستلام مكافأتك فوراً.">
 <meta name="robots" content="index, follow">
 
-<!-- Google Tag Manager -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-47XJL4GQJX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -16,388 +16,1944 @@
   gtag('config', 'G-47XJL4GQJX');
 </script>
 
+<!-- Fonts: preconnect + preload for fastest render -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap&subset=arabic">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap&subset=arabic" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet"></noscript>
+<!-- DNS prefetch for affiliate links -->
+<link rel="dns-prefetch" href="https://lxzsdfgw.xyz">
+<link rel="dns-prefetch" href="https://t.me">
+
+<!-- CRO Smart Detector (Prevents FOUC) -->
+<script>
+(function() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var src = (params.get('src') || params.get('utm_source') || '').toLowerCase();
+    var isAdult = ['adult', 'adx', 'trfc', 'push', 'xxx'].some(function(k) { return src.indexOf(k) > -1; });
+    var isMainstream = ['fb', 'google', 'native', 'sport', 'news'].some(function(k) { return src.indexOf(k) > -1; });
+    
+    if (isAdult) {
+      document.documentElement.classList.add('mode-adult');
+    } else if (isMainstream || !src) {
+      document.documentElement.classList.add('mode-mainstream');
+    }
+  } catch(e) {}
+})();
+</script>
 
 <style>
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+/* ═══════════════════════════════════════════════════
+   DESIGN SYSTEM — FanSport Landing Page
+   Version: 2.0 Premium
+═══════════════════════════════════════════════════ */
 
-:root {
-  --neon-green: #0ce418;
-  --neon-green-hov: #40d62c;
-  --cyber-purple: #9650cd;
-  --cyber-purple-dark: #644584;
-  
-  --bg-dark: #0f1512;
-  --surface-dark: #062a20;
-  --surface-light: #0c6f56;
-  --surface-accent: #0b4c3a;
-  
-  --text-main: #ffffff;
-  --text-muted: #a3a586;
-  
-  --glass-bg: rgba(6, 42, 32, 0.4);
-  --glass-border: rgba(12, 228, 24, 0.2);
-  
-  --glow-primary: rgba(12, 228, 24, 0.5);
-  --glow-secondary: rgba(150, 80, 205, 0.4);
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
-  width: 100%; min-height: 100vh;
-  font-family: 'Tajawal', sans-serif;
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  overflow-x: hidden;
+/* ── COLOR TOKENS ── */
+:root {
+  /* Backgrounds */
+  --bg:          #080C0A;
+  --surface-1:   #0D1210;
+  --surface-2:   #131A15;
+  --surface-3:   #1B2320;
+
+  /* Borders */
+  --border:      rgba(255, 255, 255, 0.06);
+  --border-em:   rgba(255, 255, 255, 0.11);
+  --border-hi:   rgba(255, 255, 255, 0.18);
+
+  /* Brand Green */
+  --brand:       #2ECC52;
+  --brand-dim:   rgba(46, 204, 82, 0.10);
+  --brand-mid:   rgba(46, 204, 82, 0.18);
+  --brand-glow:  rgba(46, 204, 82, 0.22);
+  --brand-dark:  #1fa03e;
+
+  /* Text */
+  --text-1:      #F0F5F2;
+  --text-2:      #7A9185;
+  --text-3:      #4A5E55;
+
+  /* Accent colors */
+  --telegram:    #2AABEE;
+  --telegram-dim: rgba(42, 171, 238, 0.12);
+  --warning:     #E8A020;
+
+  /* Typography Scale */
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 15px;
+  --text-md:   17px;
+  --text-lg:   20px;
+  --text-xl:   26px;
+  --text-2xl:  clamp(30px, 7vw, 46px);
+  --text-3xl:  clamp(38px, 9vw, 58px);
+
+  /* Spacing Scale (4px base) */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+
+  /* Radius */
+  --r-sm:   8px;
+  --r-md:   14px;
+  --r-lg:   20px;
+  --r-xl:   28px;
+  --r-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm:    0 1px 4px rgba(0,0,0,0.4);
+  --shadow-md:    0 4px 20px rgba(0,0,0,0.5);
+  --shadow-lg:    0 8px 40px rgba(0,0,0,0.6);
+  --shadow-brand: 0 6px 32px rgba(46, 204, 82, 0.22);
+  --shadow-brand-lg: 0 8px 48px rgba(46, 204, 82, 0.30);
+
+  /* Transitions */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ══════════════════════════════════════
+   CRO SMART STYLES
+══════════════════════════════════════ */
+.adult-only, .mainstream-only { display: none !important; }
+
+html.mode-adult .adult-only { display: flex !important; }
+html.mode-mainstream .mainstream-only { display: flex !important; }
+
+/* Adult Mode Overrides (Zero-Scroll optimized) */
+html.mode-adult .hero-sub,
+html.mode-adult .hero-arrow,
+html.mode-adult .benefits-section,
+html.mode-adult .how-section,
+html.mode-adult .faq-section { display: none !important; }
+
+html.mode-adult .hero-headline { margin-bottom: var(--sp-6); }
+html.mode-adult .page-wrap { padding-bottom: 80px; }
+
+/* Urgency Timer Banner */
+.urgency-banner {
+  background: rgba(232, 160, 32, 0.1);
+  border: 1px solid rgba(232, 160, 32, 0.3);
+  color: var(--warning);
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-5);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(232, 160, 32, 0.1);
+}
+.urgency-banner svg { width: 18px; height: 18px; animation: pulse-dot 2s infinite; }
+
+/* Sticky Mobile CTA */
+.sticky-cta-wrap {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  padding: 12px 20px;
+  background: linear-gradient(to top, rgba(8,12,10,1) 60%, rgba(8,12,10,0));
+  z-index: 150;
+  transform: translateY(120%);
+  transition: transform 0.4s var(--ease-out);
+  pointer-events: none;
+}
+.sticky-cta-wrap.visible {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.sticky-micro {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--warning);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.sticky-micro svg { width: 12px; height: 12px; }
+
+/* Button Loading State */
+.btn-main.is-loading {
+  color: transparent !important;
+  pointer-events: none;
+  position: relative;
+}
+.btn-main.is-loading::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(6, 14, 8, 0.3);
+  border-top-color: #060E08;
+  border-radius: 50%;
+  animation: btn-spin 0.8s linear infinite;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+
+/* ── BASE ── */
+html {
   scroll-behavior: smooth;
 }
 
-/* --- Animated Web3 Background --- */
-.bg-canvas {
-  position: fixed; inset: 0; z-index: -1;
-  background: radial-gradient(circle at 50% 0%, var(--surface-dark) 0%, var(--bg-dark) 70%);
-}
-.grid-overlay {
-  position: absolute; inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(12, 228, 24, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(12, 228, 24, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-  transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-  animation: gridMove 15s linear infinite;
-  opacity: 0.6;
-}
-.ambient-glow {
-  position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.5;
-  animation: pulseGlow 8s infinite alternate ease-in-out;
-}
-.glow-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--surface-light); }
-.glow-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: var(--cyber-purple-dark); animation-delay: -4s; }
-
-/* --- Navbar --- */
-.navbar {
-  position: fixed; top: 0; left: 0; right: 0;
-  padding: 15px 5%;
-  display: flex; justify-content: space-between; align-items: center;
-  background: rgba(15, 21, 18, 0.7);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--glass-border);
-  z-index: 100;
-}
-.nav-logo {
-  font-weight: 900; font-size: 22px;
-  background: linear-gradient(90deg, #fff, var(--neon-green));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.nav-status {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 700; color: var(--neon-green);
-  background: rgba(12, 228, 24, 0.1);
-  padding: 6px 14px; border-radius: 20px;
-  border: 1px solid var(--glass-border);
-}
-.live-dot { width: 8px; height: 8px; background: var(--neon-green); border-radius: 50%; animation: blink 1.5s infinite; }
-
-/* --- Hero Section --- */
-.hero {
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
   min-height: 100vh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 120px 20px 60px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── BACKGROUND TEXTURE ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -10%, rgba(46,204,82,0.09) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(46,204,82,0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 0 var(--sp-5);
+  width: 100%;
+}
+
+/* ══════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(8, 12, 10, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-inner {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.nav-logo img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.nav-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-3);
+  background: var(--brand-dim);
+  border: 1px solid rgba(46, 204, 82, 0.2);
+  border-radius: var(--r-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--brand);
+  letter-spacing: 0.5px;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--brand);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   HERO SECTION
+══════════════════════════════════════ */
+.hero {
+  padding: var(--sp-12) 0 var(--sp-8);
+  text-align: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 6px var(--sp-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border-em);
+  border-radius: var(--r-full);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-2);
+  margin-bottom: var(--sp-6);
+  letter-spacing: 0.3px;
+}
+
+.hero-eyebrow svg {
+  width: 14px;
+  height: 14px;
+  color: var(--brand);
+  flex-shrink: 0;
+}
+
+.hero-headline {
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: var(--sp-5);
+  letter-spacing: -0.5px;
+}
+
+.hero-headline .accent {
+  color: var(--brand);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-sub {
+  font-size: var(--text-base);
+  color: var(--text-2);
+  max-width: 440px;
+  margin: 0 auto var(--sp-8);
+  line-height: 1.75;
+}
+
+.hero-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  color: var(--text-3);
+  animation: bounce-arrow 2s ease-in-out infinite;
+  margin-bottom: var(--sp-4);
+}
+
+.hero-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ══════════════════════════════════════
+   FLOW INDICATOR — Core UX Component
+══════════════════════════════════════ */
+.flow-section {
+  margin-bottom: var(--sp-10);
+}
+
+.flow-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-5);
+  overflow: hidden;
+  position: relative;
+}
+
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.flow-step-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.flow-step-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 80px;
+}
+
+/* Current step */
+.flow-step.current .flow-step-icon {
+  background: var(--surface-3);
+  border: 1.5px solid var(--border-hi);
+}
+
+.flow-step.current .flow-step-label {
+  color: var(--text-2);
+}
+
+/* Next step — Registration (highlighted) */
+.flow-step.active .flow-step-icon {
+  background: var(--brand-dim);
+  border: 1.5px solid var(--brand);
+  box-shadow: 0 0 0 4px rgba(46, 204, 82, 0.08);
+}
+
+.flow-step.active .flow-step-label {
+  color: var(--brand);
+}
+
+.flow-step.active .flow-step-icon::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--brand);
+  opacity: 0.4;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+/* Future step */
+.flow-step.future .flow-step-icon {
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+}
+
+.flow-step.future .flow-step-label {
+  color: var(--text-3);
+}
+
+/* Connector lines */
+.flow-connector {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--sp-2);
+  flex-shrink: 0;
+  padding-bottom: 18px;
+}
+
+.flow-connector svg {
+  width: 14px;
+  height: 14px;
+  color: var(--border-em);
+  transform: scaleX(-1);
+}
+
+/* ══════════════════════════════════════
+   PRIMARY CTA BLOCK
+══════════════════════════════════════ */
+.cta-block {
+  background: var(--surface-1);
+  border: 1px solid rgba(46, 204, 82, 0.18);
+  border-radius: var(--r-xl);
+  padding: var(--sp-8);
+  margin-bottom: var(--sp-10);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand), transparent);
+}
+
+.cta-block::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(46,204,82,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 4px var(--sp-3);
+  background: var(--brand-dim);
+  border: 1px solid rgba(46, 204, 82, 0.22);
+  border-radius: var(--r-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: var(--sp-4);
+}
+
+.cta-tag svg {
+  width: 12px;
+  height: 12px;
+}
+
+.cta-title {
+  font-size: var(--text-xl);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: var(--sp-2);
+  letter-spacing: -0.3px;
+}
+
+.cta-desc {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  margin-bottom: var(--sp-6);
+  line-height: 1.7;
+}
+
+/* Primary Button */
+.btn-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  width: 100%;
+  padding: 18px var(--sp-6);
+  background: var(--brand);
+  color: #060E08;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  box-shadow: var(--shadow-brand);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.15s;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.2px;
+}
+
+.btn-main::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transition: right 0.55s var(--ease);
+  pointer-events: none;
+}
+
+.btn-main:hover::after {
+  right: 140%;
+}
+
+.btn-main:hover {
+  background: #33D85A;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-brand-lg);
+}
+
+.btn-main:active {
+  transform: translateY(0);
+}
+
+.btn-main svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  transform: scaleX(-1);
+}
+
+.btn-redirect-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+  font-size: var(--text-xs);
+  color: var(--text-3);
+  text-align: center;
+}
+
+.btn-redirect-note svg {
+  width: 13px;
+  height: 13px;
+  color: var(--brand);
+  flex-shrink: 0;
+}
+
+/* Trust Row */
+.trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-6);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-2);
+}
+
+.trust-item svg {
+  width: 15px;
+  height: 15px;
+  color: var(--brand);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   SECTION HEADERS
+══════════════════════════════════════ */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--sp-6);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--brand);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-3);
+}
+
+.section-label::before,
+.section-label::after {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--brand);
+  opacity: 0.4;
+}
+
+.section-title {
+  font-size: var(--text-xl);
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.section-sub {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  margin-top: var(--sp-2);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════
+   BENEFITS SECTION
+══════════════════════════════════════ */
+.benefits-section {
+  margin-bottom: var(--sp-12);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+
+.benefit-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
+}
+
+.benefit-card:first-child {
+  grid-column: 1 / -1;
+}
+
+.benefit-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-em);
+  box-shadow: var(--shadow-md);
+}
+
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--brand-dim);
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-3);
+}
+
+.benefit-icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--brand);
+}
+
+.benefit-title {
+  font-size: var(--text-md);
+  font-weight: 800;
+  margin-bottom: var(--sp-1);
+  line-height: 1.3;
+}
+
+.benefit-desc {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════
+   HOW IT WORKS — TIMELINE
+══════════════════════════════════════ */
+.how-section {
+  margin-bottom: var(--sp-12);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.timeline-item {
+  display: flex;
+  gap: var(--sp-4);
+  align-items: flex-start;
+  position: relative;
+}
+
+.timeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 44px;
+}
+
+.timeline-node {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-line {
+  width: 1px;
+  flex: 1;
+  min-height: 28px;
+  background: var(--border);
+  margin: var(--sp-2) 0;
+}
+
+.timeline-content {
+  padding-bottom: var(--sp-6);
+  padding-top: var(--sp-2);
+  flex: 1;
+  min-width: 0;
+}
+
+.timeline-step-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--sp-1);
+}
+
+.timeline-step-title {
+  font-size: var(--text-md);
+  font-weight: 800;
+  margin-bottom: var(--sp-1);
+  line-height: 1.3;
+}
+
+.timeline-step-desc {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  line-height: 1.65;
+}
+
+/* Step states */
+.timeline-item.done .timeline-node {
+  background: var(--surface-3);
+  border: 1.5px solid var(--border-em);
+  color: var(--text-2);
+}
+
+.timeline-item.done .timeline-step-label { color: var(--text-3); }
+.timeline-item.done .timeline-step-title { color: var(--text-2); }
+
+.timeline-item.active-step .timeline-node {
+  background: var(--brand-dim);
+  border: 1.5px solid var(--brand);
+  color: var(--brand);
+  box-shadow: 0 0 0 6px rgba(46, 204, 82, 0.07);
+}
+
+.timeline-item.active-step .timeline-node::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(46, 204, 82, 0.3);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.timeline-item.active-step .timeline-line {
+  background: linear-gradient(to bottom, var(--brand-mid), var(--border));
+}
+
+.timeline-item.active-step .timeline-step-label { color: var(--brand); }
+.timeline-item.active-step .timeline-step-title { color: var(--text-1); font-size: var(--text-lg); }
+
+.timeline-item.pending .timeline-node {
+  background: var(--surface-2);
+  border: 1.5px dashed var(--border);
+  color: var(--text-3);
+}
+
+.timeline-item.pending .timeline-step-label { color: var(--text-3); }
+.timeline-item.pending .timeline-step-title { color: var(--text-3); }
+
+.active-step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 3px var(--sp-3);
+  background: var(--brand-dim);
+  border: 1px solid rgba(46, 204, 82, 0.22);
+  border-radius: var(--r-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: var(--sp-2);
+}
+
+/* ══════════════════════════════════════
+   SECONDARY ACTIONS
+══════════════════════════════════════ */
+.secondary-section {
+  margin-bottom: var(--sp-12);
+}
+
+.secondary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+
+.secondary-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  text-decoration: none;
+  color: var(--text-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
+}
+
+.secondary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.secondary-card.android {
+  border-color: rgba(255,255,255,0.08);
+}
+
+.secondary-card.android:hover {
+  border-color: var(--border-em);
+}
+
+.secondary-card.telegram {
+  border-color: rgba(42, 171, 238, 0.15);
+}
+
+.secondary-card.telegram:hover {
+  border-color: rgba(42, 171, 238, 0.28);
+}
+
+.secondary-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-card.android .secondary-card-icon {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.secondary-card.telegram .secondary-card-icon {
+  background: var(--telegram-dim);
+}
+
+.secondary-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.secondary-card.android .secondary-card-icon svg { color: var(--text-2); }
+.secondary-card.telegram .secondary-card-icon svg { color: var(--telegram); }
+
+.secondary-card-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.secondary-card.android .secondary-card-label { color: var(--text-3); }
+.secondary-card.telegram .secondary-card-label { color: var(--telegram); opacity: 0.7; }
+
+.secondary-card-title {
+  font-size: var(--text-base);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.secondary-card-arrow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-3);
+  margin-top: auto;
+}
+
+.secondary-card.telegram .secondary-card-arrow { color: var(--telegram); opacity: 0.8; }
+
+.secondary-card-arrow svg {
+  width: 13px;
+  height: 13px;
+  transform: scaleX(-1);
+}
+
+/* ══════════════════════════════════════
+   FAQ
+══════════════════════════════════════ */
+.faq-section {
+  margin-bottom: var(--sp-12);
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.faq-item {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.faq-item.open {
+  border-color: var(--border-em);
+}
+
+.faq-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-1);
+  transition: color 0.2s;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  text-align: right;
+}
+
+.faq-trigger:hover { color: var(--brand); }
+
+.faq-trigger svg {
+  width: 18px;
+  height: 18px;
+  color: var(--text-3);
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease), color 0.2s;
+}
+
+.faq-item.open .faq-trigger svg {
+  transform: rotate(180deg);
+  color: var(--brand);
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-out);
+}
+
+.faq-body-inner {
+  padding: 0 var(--sp-5) var(--sp-5);
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  line-height: 1.75;
+  border-top: 1px solid var(--border);
+  padding-top: var(--sp-4);
+}
+
+/* ══════════════════════════════════════
+   FINAL CTA SECTION
+══════════════════════════════════════ */
+.final-cta-section {
+  margin-bottom: var(--sp-12);
+}
+
+.final-cta-block {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-8);
   text-align: center;
   position: relative;
-}
-.badge {
-  display: inline-block;
-  padding: 6px 16px; border-radius: 30px;
-  font-size: 14px; font-weight: 700; color: var(--neon-green);
-  background: rgba(12, 228, 24, 0.05);
-  border: 1px solid var(--neon-green);
-  margin-bottom: 20px;
-  box-shadow: 0 0 15px rgba(12, 228, 24, 0.2);
-  animation: floatUp 1s ease-out both;
-}
-.hero h1 {
-  font-size: clamp(36px, 8vw, 64px);
-  font-weight: 900; line-height: 1.1; margin-bottom: 16px;
-  text-shadow: 0 0 20px rgba(12, 228, 24, 0.3);
-  animation: slideUp 1s 0.2s ease-out both;
-}
-.hero h1 span {
-  color: var(--neon-green);
-}
-.hero p {
-  font-size: clamp(16px, 4vw, 20px);
-  color: var(--text-muted);
-  max-width: 600px; line-height: 1.6;
-  margin-bottom: 40px;
-  animation: slideUp 1s 0.4s ease-out both;
+  overflow: hidden;
 }
 
-/* --- Buttons Focus --- */
-.action-grid {
-  display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 500px;
-  animation: slideUp 1s 0.6s ease-out both;
-  margin-bottom: 40px;
+.final-cta-block::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(46,204,82,0.3), transparent);
+}
+
+.final-cta-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--brand-dim);
+  border: 1px solid rgba(46,204,82,0.22);
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--sp-4);
+}
+
+.final-cta-icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--brand);
+}
+
+.final-cta-title {
+  font-size: var(--text-xl);
+  font-weight: 900;
+  margin-bottom: var(--sp-2);
+  letter-spacing: -0.3px;
+}
+
+.final-cta-sub {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  margin-bottom: var(--sp-6);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding: var(--sp-6) var(--sp-5);
+  text-align: center;
+}
+
+.footer-inner {
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.footer-disclaimer {
+  font-size: var(--text-xs);
+  color: var(--text-3);
+  line-height: 1.7;
+  margin-bottom: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: var(--text-sm);
+  color: var(--text-3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--text-2); }
+
+.footer-sep {
+  color: var(--border-em);
+  font-size: var(--text-sm);
+}
+
+.footer-copy {
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+
+/* ══════════════════════════════════════
+   TELEGRAM BANNER (prominent, early)
+══════════════════════════════════════ */
+.tg-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  background: linear-gradient(135deg, rgba(42,171,238,0.10) 0%, rgba(42,171,238,0.04) 100%);
+  border: 1px solid rgba(42,171,238,0.22);
+  border-radius: var(--r-xl);
+  padding: var(--sp-5) var(--sp-6);
+  text-decoration: none;
+  color: var(--text-1);
+  margin-bottom: var(--sp-10);
   position: relative;
-  z-index: 10;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
 }
 
-.btn-web3 {
-  position: relative;
-  display: flex; align-items: center; justify-content: center; gap: 16px;
-  width: 100%; padding: 22px 24px;
-  border-radius: 18px;
-  font-family: 'Tajawal', sans-serif; font-size: 22px; font-weight: 900;
-  color: #fff; text-decoration: none;
-  background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface-accent) 100%);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
-  overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  backdrop-filter: blur(5px);
+.tg-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(42,171,238,0.5), transparent);
 }
-.btn-web3::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transform: translateX(-100%); transition: 0.5s;
-}
-.btn-web3:hover { transform: translateY(-5px); box-shadow: 0 15px 40px var(--glow-primary); border-color: var(--neon-green); }
-.btn-web3:hover::before { animation: shineBtn 1.5s infinite; }
-.btn-web3:active { transform: translateY(0); }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--neon-green) 0%, var(--surface-light) 100%);
-  color: var(--bg-dark); border: none;
-  box-shadow: 0 0 40px var(--glow-primary);
-  transform: scale(1.05); /* Make the main CTA slightly larger to grab attention */
+.tg-banner:hover {
+  transform: translateY(-2px);
+  border-color: rgba(42,171,238,0.38);
+  box-shadow: 0 8px 32px rgba(42,171,238,0.12);
 }
-.btn-primary .btn-icon { stroke: var(--bg-dark); }
-.btn-primary:hover { box-shadow: 0 0 60px var(--neon-green); border: 1px solid #fff; transform: scale(1.08) translateY(-5px); }
 
-.btn-telegram {
-  background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
-  box-shadow: 0 10px 30px rgba(42, 171, 238, 0.3);
+.tg-banner-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(42,171,238,0.15);
+  border: 1px solid rgba(42,171,238,0.3);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.btn-telegram:hover { box-shadow: 0 15px 40px rgba(42, 171, 238, 0.5); border-color: #fff; }
 
-.btn-content { display: flex; flex-direction: column; align-items: center; }
-.btn-text { font-size: 22px; }
-.btn-sub { font-size: 13px; font-weight: 700; opacity: 0.85; margin-top: 6px; }
-.btn-icon { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-
-/* --- Progress / Scarcity --- */
-.scarcity-box {
-  width: 100%; max-width: 450px;
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  border-radius: 16px; padding: 20px;
-  backdrop-filter: blur(10px);
-  animation: slideUp 1s 0.8s ease-out both;
+.tg-banner-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--telegram);
 }
-.scarcity-text { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--text-muted); }
-.scarcity-text span { color: var(--neon-green); }
-.progress-bar { width: 100%; height: 8px; background: rgba(0,0,0,0.5); border-radius: 4px; overflow: hidden; position: relative; }
-.progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 85%; background: var(--neon-green); border-radius: 4px; box-shadow: 0 0 10px var(--neon-green); animation: pulseWidth 2s infinite alternate; }
 
-/* --- Live Toast Notification --- */
-.toast-container {
-  position: fixed; bottom: 20px; left: 20px; z-index: 1000;
-  display: flex; flex-direction: column; gap: 10px; pointer-events: none;
+.tg-banner-body {
+  flex: 1;
+  min-width: 0;
 }
-.toast {
-  background: rgba(15, 21, 18, 0.9); border: 1px solid var(--glass-border);
-  backdrop-filter: blur(10px); padding: 12px 20px; border-radius: 12px;
-  display: flex; align-items: center; gap: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  transform: translateX(-120%); opacity: 0; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.toast.show { transform: translateX(0); opacity: 1; }
-.toast-icon { width: 32px; height: 32px; background: rgba(12, 228, 24, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--neon-green); }
-.toast-icon svg { width: 18px; height: 18px; stroke: var(--neon-green); }
-.toast-text { font-size: 13px; color: var(--text-muted); }
-.toast-text strong { color: #fff; font-family: monospace; letter-spacing: 1px; }
 
-/* --- Exit Intent Modal (Web3 Style) --- */
+.tg-banner-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--telegram);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
+  opacity: 0.85;
+}
+
+.tg-banner-title {
+  font-size: var(--text-base);
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.tg-banner-sub {
+  font-size: var(--text-xs);
+  color: var(--text-2);
+}
+
+.tg-banner-arrow {
+  width: 36px;
+  height: 36px;
+  background: rgba(42,171,238,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.tg-banner:hover .tg-banner-arrow {
+  background: rgba(42,171,238,0.22);
+  transform: translateX(-3px);
+}
+
+.tg-banner-arrow svg {
+  width: 16px;
+  height: 16px;
+  color: var(--telegram);
+  transform: scaleX(-1);
+}
+
+/* ══════════════════════════════════════
+   EXIT MODAL
+══════════════════════════════════════ */
 .modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px);
-  z-index: 9999; display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: 0.3s;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease);
 }
-.modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .modal-box {
-  background: var(--bg-dark); width: 90%; max-width: 400px;
-  border: 1px solid var(--cyber-purple); border-radius: 24px;
-  padding: 40px 30px; text-align: center;
-  box-shadow: 0 0 50px rgba(150, 80, 205, 0.3), inset 0 0 20px rgba(150, 80, 205, 0.1);
-  transform: scale(0.9) translateY(20px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative; overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--border-em);
+  border-radius: var(--r-xl);
+  padding: var(--sp-8);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  transform: scale(0.94) translateY(8px);
+  transition: transform 0.35s var(--ease);
+  box-shadow: var(--shadow-lg);
 }
-.modal-overlay.active .modal-box { transform: scale(1) translateY(0); }
-.modal-box::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, var(--neon-green), var(--cyber-purple));
+
+.modal-overlay.active .modal-box {
+  transform: scale(1) translateY(0);
 }
-.modal-icon { width: 60px; height: 60px; margin: 0 auto 20px; animation: pulseGlow 2s infinite; }
-.modal-icon svg { width: 100%; height: 100%; stroke: var(--cyber-purple); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.modal-title { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 12px; }
-.modal-desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 30px; }
-.modal-desc strong { color: var(--neon-green); }
-.modal-close { position: absolute; top: 15px; left: 15px; background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; transition: 0.2s; }
-.modal-close:hover { color: #fff; transform: rotate(90deg); }
 
-/* --- Animations --- */
-@keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 0 40px; } }
-@keyframes pulseGlow { 0% { opacity: 0.3; transform: scale(0.9); } 100% { opacity: 0.7; transform: scale(1.1); } }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-@keyframes floatUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes shineBtn { 100% { transform: translateX(200%); } }
-@keyframes pulseWidth { 0% { width: 85%; } 100% { width: 88%; } }
+.modal-close {
+  position: absolute;
+  top: var(--sp-4);
+  left: var(--sp-4);
+  width: 32px;
+  height: 32px;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1;
+}
 
+.modal-close:hover {
+  background: var(--border-em);
+  color: var(--text-1);
+}
+
+.modal-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--brand-dim);
+  border: 1px solid rgba(46,204,82,0.22);
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--sp-5);
+}
+
+.modal-icon svg {
+  width: 30px;
+  height: 30px;
+  color: var(--brand);
+}
+
+.modal-title {
+  font-size: var(--text-xl);
+  font-weight: 900;
+  margin-bottom: var(--sp-3);
+  letter-spacing: -0.3px;
+}
+
+.modal-desc {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  margin-bottom: var(--sp-6);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════
+   ENTRANCE ANIMATIONS
+══════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+
+/* ══════════════════════════════════════
+   KEYFRAMES
+══════════════════════════════════════ */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.8); }
+}
+
+@keyframes pulse-ring {
+  0%   { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 480px) {
+  .cta-block { padding: var(--sp-6); }
+  .flow-track { padding: var(--sp-3) var(--sp-3); }
+  .flow-step-label { font-size: 10px; max-width: 64px; }
+  .secondary-grid { grid-template-columns: 1fr; }
+  .trust-row { gap: var(--sp-4); }
+  .final-cta-block { padding: var(--sp-6); }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .benefit-card:first-child { grid-column: auto; }
+}
+
+@media (max-width: 360px) {
+  .flow-connector { padding: 0 var(--sp-1); }
+}
 </style>
 </head>
 <body>
 
-<!-- Animated Background -->
-<div class="bg-canvas"></div>
-<div class="grid-overlay"></div>
-<div class="ambient-glow glow-1"></div>
-<div class="ambient-glow glow-2"></div>
+<div class="page-wrap">
 
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="nav-logo">
-    جايزتك مستنياك
-  </div>
-  <div class="nav-status">
-    <div class="live-dot"></div> مباشر الآن
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar" aria-label="شريط التنقل الرئيسي">
+  <div class="navbar-inner">
+    <a href="/" aria-label="فانسبورت">
+      <img src="logo.png" alt="FanSport" class="nav-logo" style="height:30px;width:auto;" loading="lazy" decoding="async" width="120" height="30">
+    </a>
+    <div class="nav-live-badge" aria-label="العرض متاح الآن">
+      <span class="live-dot" aria-hidden="true"></span>
+      العرض متاح الآن
+    </div>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="badge">🚀 فرصة حصرية لفترة محدودة</div>
-  
-  <h1>سجل الآن و <span>اكتشف هديتك</span></h1>
-  <p>أنت على بعد خطوة واحدة من تفعيل هديتك في حسابك. انضم إلى الآلاف وابدأ فرصتك اليوم.</p>
+<main>
 
-  <!-- CTA Buttons Front and Center -->
-  <div class="action-grid">
-    <a href="https://lxzsdfgw.xyz/L?tag=d_5851618m_105936c_&site=5851618&ad=105936&r=ar" target="_blank" rel="noopener" class="btn-web3 btn-primary" id="btnMain">
-      <svg class="btn-icon" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
-      <div class="btn-content">
-        <span class="btn-text">التسجيل واستلام المكافأة</span>
-        <span class="btn-sub">الذهاب للموقع الرسمي (خطوة 1)</span>
-      </div>
-    </a>
-
-    <a href="https://lxzsdfgw.xyz/L?tag=d_5851618m_126154c_&site=5851618&ad=126154" target="_blank" rel="noopener" class="btn-web3" id="btnAndroid">
-      <svg class="btn-icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-      <div class="btn-content">
-        <span class="btn-text">تحميل تطبيق الأندرويد</span>
-        <span class="btn-sub">احصل على هدايا إضافية (خطوة 2)</span>
-      </div>
-    </a>
-
-    <a href="https://t.me/+cJey-Rg4ziQyMmUx" target="_blank" rel="noopener" class="btn-web3 btn-telegram" id="btnTelegram">
-      <svg class="btn-icon" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-      <div class="btn-content">
-        <span class="btn-text">انضم لمجتمع التليجرام</span>
-        <span class="btn-sub">تحديثات وجوائز سرية (خطوة 3)</span>
-      </div>
-    </a>
+<!-- ══════════ HERO ══════════ -->
+<section class="hero container" aria-labelledby="hero-headline">
+  <div class="hero-eyebrow reveal">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+    صفحة التفاصيل والمكافأة
   </div>
 
-  <!-- Scarcity -->
-  <div class="scarcity-box">
-    <div class="scarcity-text">
-      <span>الأماكن المتبقية لتفعيل الجائزة:</span>
-      <span id="spotsLeft">14 / 150</span>
+  <div class="adult-only urgency-banner reveal" id="urgencyBanner" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <span id="countdownTimer">العرض ينتهي خلال: 15:00</span>
+  </div>
+
+  <h1 class="hero-headline reveal reveal-delay-1" id="hero-headline">
+    مكافأتك الترحيبية<br><span class="accent" id="dynamicBonus">في انتظارك</span>
+  </h1>
+
+  <p class="hero-sub reveal reveal-delay-2">
+    أنت على بُعد خطوة واحدة فقط. اقرأ التفاصيل أدناه، ثم انتقل لصفحة التسجيل لتفعيل حسابك واستلام مكافأتك.
+  </p>
+
+  <div class="hero-arrow reveal reveal-delay-3" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ══════════ FLOW INDICATOR ══════════ -->
+<section class="flow-section container" aria-label="مراحل التسجيل">
+  <div class="flow-track reveal">
+
+    <!-- Step 1: Current Page -->
+    <div class="flow-step current" aria-current="step">
+      <div class="flow-step-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#52635C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
+        </svg>
+      </div>
+      <span class="flow-step-label">صفحتك الحالية</span>
     </div>
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
+
+    <!-- Connector -->
+    <div class="flow-connector" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </div>
+
+    <!-- Step 2: Registration (next) -->
+    <div class="flow-step active" aria-label="الخطوة التالية: التسجيل">
+      <div class="flow-step-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ECC52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+        </svg>
+      </div>
+      <span class="flow-step-label">صفحة التسجيل</span>
+    </div>
+
+    <!-- Connector -->
+    <div class="flow-connector" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </div>
+
+    <!-- Step 3: Use App (future) -->
+    <div class="flow-step future" aria-label="الخطوة الأخيرة: استخدم التطبيق">
+      <div class="flow-step-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A5E55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+      </div>
+      <span class="flow-step-label">استخدم التطبيق</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ PRIMARY CTA BLOCK ══════════ -->
+<section class="container" aria-labelledby="cta-main-title">
+  <div class="cta-block reveal">
+    <div class="cta-tag" aria-label="الخطوة الأولى">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/>
+        <line x1="12" y1="22" x2="12" y2="7"/>
+        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+      </svg>
+      الخطوة الأولى والأهم
+    </div>
+
+    <h2 class="cta-title" id="cta-main-title">افتح حسابك واحصل على مكافأتك</h2>
+    <p class="cta-desc">انقر على الزر أدناه للانتقال لصفحة التسجيل الرسمية. العملية سريعة ومجانية بالكامل، ومكافأتك ستُفعَّل تلقائياً فور إنشاء الحساب.</p>
+
+    <a
+      href="https://lxzsdfgw.xyz/L?tag=d_5851618m_105936c_&site=5851618&ad=105936&r=ar"
+      target="_blank"
+      rel="noopener"
+      class="btn-main"
+      id="btnMain"
+      aria-label="الانتقال لصفحة التسجيل الرسمية"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+      </svg>
+      انتقل لصفحة التسجيل
+    </a>
+
+    <p class="btn-redirect-note" aria-live="polite">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+      ستُنقل فوراً لصفحة إنشاء الحساب في نافذة جديدة
+    </p>
+
+    <div class="trust-row" aria-label="مؤشرات الثقة">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>مشفر ومحمي</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <span>آلاف المسجلين</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span>مجاني تماماً</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Toasts Container -->
-<div class="toast-container" id="toastContainer"></div>
+<!-- ══════════ TELEGRAM BANNER ══════════ -->
+<section class="container" aria-label="قناة تليجرام فانسبورت">
+  <a
+    href="https://t.me/+cJey-Rg4ziQyMmUx"
+    target="_blank"
+    rel="noopener"
+    class="tg-banner reveal"
+    id="btnTelegramBanner"
+    aria-label="انضم لقناة تليجرام فانسبورت للعروض الحصرية"
+  >
+    <div class="tg-banner-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+      </svg>
+    </div>
+    <div class="tg-banner-body">
+      <div class="tg-banner-label">مجتمعنا على تليجرام</div>
+      <div class="tg-banner-title">انضم للقناة واحصل على عروض يومية حصرية</div>
+      <div class="tg-banner-sub">آلاف المتابعين · تحديثات لحظية · مجاني تماماً</div>
+    </div>
+    <div class="tg-banner-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </div>
+  </a>
+</section>
 
-<!-- Footer -->
-<footer style="text-align: center; padding: 30px 20px; color: var(--text-muted); font-size: 14px; position: relative; z-index: 10;">
-  <p style="margin-bottom: 10px;">جميع الحقوق محفوظة &copy; 2026 جايزتك مستنياك</p>
-  <div>
-    <a href="privacy.html" style="color: var(--neon-green); text-decoration: none; margin: 0 10px; transition: color 0.2s;">سياسة الخصوصية</a> |
-    <a href="terms.html" style="color: var(--neon-green); text-decoration: none; margin: 0 10px; transition: color 0.2s;">الشروط والأحكام</a>
+<!-- ══════════ BENEFITS ══════════ -->
+<section class="benefits-section container" aria-labelledby="benefits-title">
+  <div class="section-header reveal">
+    <div class="section-label" aria-hidden="true">ما الذي ستحصل عليه</div>
+    <h2 class="section-title" id="benefits-title">مزايا حسابك المجاني</h2>
+    <p class="section-sub">كل ما تحتاجه لبدء رحلتك بثقة وراحة تامة</p>
+  </div>
+
+  <div class="benefits-grid">
+    <div class="benefit-card reveal reveal-delay-1">
+      <div class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/>
+          <line x1="12" y1="22" x2="12" y2="7"/>
+          <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+          <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+        </svg>
+      </div>
+      <div class="benefit-title">مكافأة ترحيبية فورية</div>
+      <div class="benefit-desc">استلم مكافأتك الترحيبية الحصرية مباشرةً بعد إنشاء حسابك وإتمام أول إيداع. العرض لفترة محدودة.</div>
+    </div>
+
+    <div class="benefit-card reveal reveal-delay-2">
+      <div class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+      </div>
+      <div class="benefit-title">تطبيق متكامل</div>
+      <div class="benefit-desc">تجربة سلسة على هاتفك مع إشعارات فورية لأفضل العروض والمباريات.</div>
+    </div>
+
+    <div class="benefit-card reveal reveal-delay-3">
+      <div class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="benefit-title">أمان تام</div>
+      <div class="benefit-desc">تشفير كامل لبياناتك وحماية شاملة لعملياتك المالية في جميع الأوقات.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ HOW IT WORKS ══════════ -->
+<section class="how-section container" aria-labelledby="how-title">
+  <div class="section-header reveal">
+    <div class="section-label" aria-hidden="true">العملية خطوة بخطوة</div>
+    <h2 class="section-title" id="how-title">كيف يعمل النظام؟</h2>
+    <p class="section-sub">ثلاث خطوات فقط تفصلك عن استلام مكافأتك</p>
+  </div>
+
+  <div class="timeline" role="list">
+
+    <!-- Step 1 — Done (current page) -->
+    <div class="timeline-item done reveal reveal-delay-1" role="listitem">
+      <div class="timeline-left">
+        <div class="timeline-node" aria-label="الخطوة الأولى مكتملة">✓</div>
+        <div class="timeline-line" aria-hidden="true"></div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-step-label">الخطوة 1</div>
+        <div class="timeline-step-title">قراءة التفاصيل</div>
+        <div class="timeline-step-desc">أنت هنا الآن. اطلع على التفاصيل والمكافآت قبل المتابعة.</div>
+      </div>
+    </div>
+
+    <!-- Step 2 — Active (registration) -->
+    <div class="timeline-item active-step reveal reveal-delay-2" role="listitem" aria-current="true">
+      <div class="timeline-left">
+        <div class="timeline-node" aria-label="الخطوة التالية: التسجيل">2</div>
+        <div class="timeline-line" aria-hidden="true"></div>
+      </div>
+      <div class="timeline-content">
+        <div class="active-step-badge" aria-label="الخطوة التالية">
+          <span aria-hidden="true">←</span> خطوتك التالية
+        </div>
+        <div class="timeline-step-label">الخطوة 2</div>
+        <div class="timeline-step-title">صفحة التسجيل الرسمية</div>
+        <div class="timeline-step-desc">بعد الضغط على زر "انتقل لصفحة التسجيل" ستنتقل لصفحة إنشاء الحساب الرسمية حيث تُدخل بياناتك وتُفعّل مكافأتك.</div>
+      </div>
+    </div>
+
+    <!-- Step 3 — Pending (app) -->
+    <div class="timeline-item pending reveal reveal-delay-3" role="listitem">
+      <div class="timeline-left">
+        <div class="timeline-node" aria-label="الخطوة الأخيرة: التطبيق">3</div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-step-label">الخطوة 3</div>
+        <div class="timeline-step-title">استخدم التطبيق وابدأ</div>
+        <div class="timeline-step-desc">بعد تفعيل حسابك، حمّل التطبيق وابدأ التجربة كاملةً مع مكافأتك.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ SECONDARY ACTIONS ══════════ -->
+<section class="secondary-section container" aria-labelledby="secondary-title">
+  <div class="section-header reveal">
+    <div class="section-label" aria-hidden="true">خطوات مكملة</div>
+    <h2 class="section-title" id="secondary-title">بعد التسجيل</h2>
+    <p class="section-sub">احصل على أقصى استفادة من تجربتك</p>
+  </div>
+
+  <div class="secondary-grid">
+    <a
+      href="https://lxzsdfgw.xyz/L?tag=d_5851618m_126154c_&site=5851618&ad=126154"
+      target="_blank"
+      rel="noopener"
+      class="secondary-card android reveal reveal-delay-1"
+      id="btnAndroid"
+      aria-label="تحميل تطبيق FanSport للأندرويد"
+    >
+      <div class="secondary-card-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+          <line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+      </div>
+      <div class="secondary-card-label">تطبيق مجاني</div>
+      <div class="secondary-card-title">تحميل تطبيق Android</div>
+      <div class="secondary-card-arrow">
+        <span>تحميل الآن</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </div>
+    </a>
+
+    <a
+      href="https://t.me/+cJey-Rg4ziQyMmUx"
+      target="_blank"
+      rel="noopener"
+      class="secondary-card telegram reveal reveal-delay-2"
+      id="btnTelegram"
+      aria-label="الانضمام لقناة تليجرام فانسبورت"
+    >
+      <div class="secondary-card-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </div>
+      <div class="secondary-card-label">مجتمعنا</div>
+      <div class="secondary-card-title">قناة تليجرام</div>
+      <div class="secondary-card-arrow">
+        <span>انضم الآن</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq-section container" aria-labelledby="faq-title">
+  <div class="section-header reveal">
+    <div class="section-label" aria-hidden="true">لديك سؤال؟</div>
+    <h2 class="section-title" id="faq-title">أسئلة شائعة</h2>
+  </div>
+
+  <div class="faq-list" role="list">
+
+    <div class="faq-item reveal reveal-delay-1" role="listitem">
+      <button class="faq-trigger" aria-expanded="false" aria-controls="faq-body-1" id="faq-trigger-1">
+        <span>ماذا سيحدث عندما أضغط زر التسجيل؟</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-body" id="faq-body-1" role="region" aria-labelledby="faq-trigger-1">
+        <div class="faq-body-inner">
+          ستنتقل فوراً لصفحة التسجيل الرسمية لمنصة فانسبورت في نافذة جديدة. هذه الصفحة الحالية تعمل فقط كصفحة تعريفية تشرح لك التفاصيل قبل أن تبدأ رحلة التسجيل الفعلية.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal reveal-delay-2" role="listitem">
+      <button class="faq-trigger" aria-expanded="false" aria-controls="faq-body-2" id="faq-trigger-2">
+        <span>هل التسجيل مجاني؟</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-body" id="faq-body-2" role="region" aria-labelledby="faq-trigger-2">
+        <div class="faq-body-inner">
+          نعم، إنشاء الحساب مجاني بالكامل ولا يتطلب أي رسوم. المكافأة الترحيبية تُفعَّل عند إتمام أول إيداع وفق شروط وأحكام المنصة.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal reveal-delay-3" role="listitem">
+      <button class="faq-trigger" aria-expanded="false" aria-controls="faq-body-3" id="faq-trigger-3">
+        <span>هل يمكنني التسجيل من هاتفي المحمول؟</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-body" id="faq-body-3" role="region" aria-labelledby="faq-trigger-3">
+        <div class="faq-body-inner">
+          بالطبع. صفحة التسجيل تعمل بشكل مثالي على الهاتف المحمول. كما يمكنك تحميل تطبيق الأندرويد للحصول على تجربة أفضل وأكثر سرعة.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ FINAL CTA ══════════ -->
+<section class="final-cta-section container" aria-labelledby="final-cta-title">
+  <div class="final-cta-block reveal">
+    <div class="final-cta-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/>
+        <line x1="12" y1="22" x2="12" y2="7"/>
+        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+      </svg>
+    </div>
+    <h2 class="final-cta-title" id="final-cta-title">جاهز للبدء؟</h2>
+    <p class="final-cta-sub">انتقل الآن لصفحة التسجيل وفعّل مكافأتك الترحيبية. العرض محدود.</p>
+    <a
+      href="https://lxzsdfgw.xyz/L?tag=d_5851618m_105936c_&site=5851618&ad=105936&r=ar"
+      target="_blank"
+      rel="noopener"
+      class="btn-main"
+      id="btnMainBottom"
+      aria-label="الانتقال لصفحة التسجيل"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+      </svg>
+      سجّل حسابك الآن
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-disclaimer">
+      هذا الموقع يعمل كصفحة تعريفية وتوجيهية فقط. التسجيل وجميع العمليات المالية تتم عبر المنصة الخارجية وفق شروطها وأحكامها. هذا الموقع غير تابع لشركة Meta Platforms, Inc.
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html" id="footerPrivacy">سياسة الخصوصية</a>
+      <span class="footer-sep" aria-hidden="true">·</span>
+      <a href="terms.html" id="footerTerms">الشروط والأحكام</a>
+    </div>
+    <div class="footer-copy">جميع الحقوق محفوظة &copy; 2026 FanSport</div>
   </div>
 </footer>
 
-<!-- Exit Intent Modal -->
-<div class="modal-overlay" id="exitModal">
+</div><!-- /.page-wrap -->
+
+<!-- ══════════ STICKY MOBILE CTA ══════════ -->
+<div class="sticky-cta-wrap" id="stickyCta">
+  <div class="sticky-micro">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+    احجز مكافأتك قبل الانتهاء
+  </div>
+  <a
+    href="https://lxzsdfgw.xyz/L?tag=d_5851618m_105936c_&site=5851618&ad=105936&r=ar"
+    target="_blank"
+    rel="noopener"
+    class="btn-main"
+    id="btnStickyMain"
+    aria-label="سجل حسابك الآن"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+    </svg>
+    سجل حسابك الآن
+  </a>
+</div>
+
+<!-- ══════════ EXIT INTENT MODAL ══════════ -->
+<div class="modal-overlay" id="exitModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal-box">
-    <button class="modal-close" id="closeModal">&times;</button>
-    <div class="modal-icon">
-      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <button class="modal-close" id="closeModal" aria-label="إغلاق النافذة">&times;</button>
+    <div class="modal-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/>
+        <line x1="12" y1="22" x2="12" y2="7"/>
+        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+      </svg>
     </div>
-    <h3 class="modal-title">تحذير: رصيدك سيفقد!</h3>
-    <p class="modal-desc">لقد تم تجهيز <strong>جائزة سرية لك</strong>، إذا غادرت الصفحة الآن قد تذهب لشخص آخر. هل أنت متأكد من المغادرة؟</p>
-    <a href="https://lxzsdfgw.xyz/L?tag=d_5851618m_105936c_&site=5851618&ad=105936&r=ar" target="_blank" rel="noopener" class="btn-web3 btn-primary" id="btnExitModal" style="width:100%; padding: 14px;">
-      <span class="btn-text" style="font-size: 18px;">لا، أريد استلام جائزتي</span>
+    <h3 class="modal-title" id="modal-title">انتظر! مكافأتك لا تزال هنا</h3>
+    <p class="modal-desc">لقد اطلعت على التفاصيل. مكافأتك الترحيبية الحصرية في انتظارك. هل أنت متأكد من رغبتك في المغادرة؟</p>
+    <a
+      href="https://lxzsdfgw.xyz/L?tag=d_5851618m_105936c_&site=5851618&ad=105936&r=ar"
+      target="_blank"
+      rel="noopener"
+      class="btn-main"
+      id="btnExitModal"
+      aria-label="العودة وإكمال التسجيل"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+      </svg>
+      إكمال التسجيل الآن
     </a>
   </div>
 </div>
 
 <script>
-/* Tracking */
+/* ═══════════════════════════════
+   ANALYTICS HELPERS
+═══════════════════════════════ */
 function trackEvent(name, params) {
   console.log('[GA]', name, params);
   if (typeof gtag === 'function') gtag('event', name, params || {});
 }
 
-/* Fake Live Social Proof Toasts */
-const container = document.getElementById('toastContainer');
-
-function showToast() {
-  const randomId = Math.floor(Math.random() * 900) + 100; // generates 100-999
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.innerHTML = `
-    <div class="toast-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-    </div>
-    <div class="toast-text">
-      المستخدم <strong>ID:${randomId}***</strong> للتو قام بتفعيل جائزة سرية!
-    </div>
-  `;
-  container.appendChild(toast);
-  
-  // Show
-  requestAnimationFrame(() => {
-    setTimeout(() => toast.classList.add('show'), 100);
-  });
-  
-  // Hide & Remove
-  setTimeout(() => {
-    toast.classList.remove('show');
-    setTimeout(() => toast.remove(), 500);
-  }, 4000);
-
-  // Next toast random interval 5s - 12s
-  setTimeout(showToast, Math.random() * 7000 + 5000);
-}
-setTimeout(showToast, 2000);
-
-/* Scarcity Counter */
-let spots = 14;
-const spotsEl = document.getElementById('spotsLeft');
-function decreaseSpots() {
-  if (spots > 3) {
-    spots--;
-    spotsEl.textContent = `${spots} / 150`;
-    setTimeout(decreaseSpots, Math.random() * 15000 + 10000);
-  }
-}
-setTimeout(decreaseSpots, 8000);
-
-/* Exit Intent Modal */
+/* ═══════════════════════════════
+   EXIT INTENT MODAL
+═══════════════════════════════ */
 let modalShown = false;
 const exitModal = document.getElementById('exitModal');
 const closeModal = document.getElementById('closeModal');
@@ -409,16 +1965,223 @@ function showExitModal() {
   trackEvent('Exit_Intent_Shown', { event_category: 'Engagement' });
 }
 
-document.addEventListener('mouseleave', e => { if (e.clientY <= 10) showExitModal(); });
-closeModal.addEventListener('click', () => exitModal.classList.remove('active'));
-exitModal.addEventListener('click', e => { if(e.target === exitModal) exitModal.classList.remove('active'); });
+// Desktop — mouse leaves viewport at top
+document.addEventListener('mouseleave', function(e) {
+  if (e.clientY <= 10) showExitModal();
+});
 
-/* Button Clicks */
-document.getElementById('btnMain').addEventListener('click', () => trackEvent('CTA_Main_Click', { event_category: 'Conversion' }));
-document.getElementById('btnAndroid').addEventListener('click', () => trackEvent('CTA_Android_Click', { event_category: 'Conversion' }));
-document.getElementById('btnTelegram').addEventListener('click', () => trackEvent('CTA_Telegram_Click', { event_category: 'Conversion' }));
-document.getElementById('btnExitModal').addEventListener('click', () => trackEvent('CTA_ExitModal_Click', { event_category: 'Conversion' }));
+closeModal.addEventListener('click', function() {
+  exitModal.classList.remove('active');
+});
 
+exitModal.addEventListener('click', function(e) {
+  if (e.target === exitModal) exitModal.classList.remove('active');
+});
+
+// Mobile — quick scroll back to top
+let lastScrollY = window.scrollY;
+let didScrollDown = false;
+window.addEventListener('scroll', function() {
+  const currentY = window.scrollY;
+  if (currentY > 200) didScrollDown = true;
+  if (didScrollDown && currentY < lastScrollY - 60 && currentY < 80) {
+    showExitModal();
+  }
+  lastScrollY = currentY;
+}, { passive: true });
+
+/* ═══════════════════════════════
+   BUTTON CLICK TRACKING
+═══════════════════════════════ */
+document.getElementById('btnMain').addEventListener('click', function() {
+  trackEvent('CTA_Main_Click', { event_category: 'Conversion', event_label: 'Hero CTA' });
+});
+
+document.getElementById('btnMainBottom').addEventListener('click', function() {
+  trackEvent('CTA_Main_Bottom_Click', { event_category: 'Conversion', event_label: 'Bottom CTA' });
+});
+
+document.getElementById('btnAndroid').addEventListener('click', function() {
+  trackEvent('CTA_Android_Click', { event_category: 'Conversion', event_label: 'Android App' });
+});
+
+document.getElementById('btnTelegram').addEventListener('click', function() {
+  trackEvent('CTA_Telegram_Click', { event_category: 'Engagement', event_label: 'Secondary Card' });
+});
+
+document.getElementById('btnTelegramBanner').addEventListener('click', function() {
+  trackEvent('CTA_Telegram_Banner_Click', { event_category: 'Engagement', event_label: 'Early Banner' });
+});
+
+document.getElementById('btnExitModal').addEventListener('click', function() {
+  trackEvent('CTA_ExitModal_Click', { event_category: 'Conversion', event_label: 'Exit Modal' });
+  exitModal.classList.remove('active');
+});
+
+/* ═══════════════════════════════
+   PAGE VIEW EVENT
+═══════════════════════════════ */
+trackEvent('page_view', { event_category: 'Engagement', event_label: 'Landing Page Loaded' });
+
+/* ═══════════════════════════════
+   SCROLL DEPTH TRACKING
+═══════════════════════════════ */
+(function() {
+  var milestones = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if (docHeight <= 0) return;
+    var pct = Math.round((scrollTop / docHeight) * 100);
+    [25, 50, 75, 100].forEach(function(m) {
+      if (!milestones[m] && pct >= m) {
+        milestones[m] = true;
+        trackEvent('Scroll_Depth', { event_category: 'Engagement', event_label: m + '%', value: m });
+      }
+    });
+  }, { passive: true });
+})();
+
+/* ═══════════════════════════════
+   TIME ON PAGE TRACKING
+═══════════════════════════════ */
+(function() {
+  var timers = [
+    { sec: 15,  fired: false, label: '15s'  },
+    { sec: 30,  fired: false, label: '30s'  },
+    { sec: 60,  fired: false, label: '60s'  },
+    { sec: 120, fired: false, label: '120s' }
+  ];
+  var start = Date.now();
+  var iv = setInterval(function() {
+    var elapsed = (Date.now() - start) / 1000;
+    timers.forEach(function(t) {
+      if (!t.fired && elapsed >= t.sec) {
+        t.fired = true;
+        trackEvent('Time_On_Page', { event_category: 'Engagement', event_label: t.label, value: t.sec });
+      }
+    });
+    if (timers.every(function(t) { return t.fired; })) clearInterval(iv);
+  }, 5000);
+})();
+
+/* ═══════════════════════════════
+   FAQ ACCORDION
+═══════════════════════════════ */
+document.querySelectorAll('.faq-trigger').forEach(function(trigger) {
+  trigger.addEventListener('click', function() {
+    const item = this.closest('.faq-item');
+    const body = document.getElementById(this.getAttribute('aria-controls'));
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(function(el) {
+      el.classList.remove('open');
+      el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+      el.querySelector('.faq-body').style.maxHeight = null;
+    });
+
+    // Open clicked if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      this.setAttribute('aria-expanded', 'true');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ═══════════════════════════════
+   ENTRANCE ANIMATIONS (IntersectionObserver)
+═══════════════════════════════ */
+(function() {
+  var reveals = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
+
+/* ═══════════════════════════════
+   CRO SMART LOGIC (Timer, Sticky, Dynamic Bonus, Loading)
+═══════════════════════════════ */
+(function() {
+  // 1. Dynamic Bonus Text
+  var params = new URLSearchParams(window.location.search);
+  var bonus = params.get('bonus');
+  if (bonus) {
+    var bonusEl = document.getElementById('dynamicBonus');
+    if (bonusEl) bonusEl.innerHTML = 'تصل إلى ' + bonus + '$';
+  }
+
+  // 2. Countdown Timer (15 mins evergreen)
+  var isAdult = document.documentElement.classList.contains('mode-adult');
+  if (isAdult) {
+    var timerEl = document.getElementById('countdownTimer');
+    var endTime = sessionStorage.getItem('fs_timer_end');
+    if (!endTime) {
+      endTime = Date.now() + 15 * 60 * 1000;
+      sessionStorage.setItem('fs_timer_end', endTime);
+    }
+    var updateTimer = setInterval(function() {
+      var diff = Math.floor((endTime - Date.now()) / 1000);
+      if (diff <= 0) {
+        // Reset for another 5 mins to keep urgency
+        endTime = Date.now() + 5 * 60 * 1000;
+        sessionStorage.setItem('fs_timer_end', endTime);
+        diff = 5 * 60;
+      }
+      var m = Math.floor(diff / 60);
+      var s = diff % 60;
+      if (timerEl) timerEl.innerText = 'العرض ينتهي خلال: ' + m + ':' + (s < 10 ? '0' : '') + s;
+    }, 1000);
+  }
+
+  // 3. Sticky CTA Observer (Show after scroll down 200px OR if Adult)
+  var sticky = document.getElementById('stickyCta');
+  if (sticky) {
+    if (isAdult) {
+      setTimeout(function(){ sticky.classList.add('visible'); }, 500);
+    } else {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 250) {
+          sticky.classList.add('visible');
+        } else {
+          sticky.classList.remove('visible');
+        }
+      }, { passive: true });
+    }
+  }
+
+  // 4. Loading States on Primary Buttons
+  var btns = [document.getElementById('btnMain'), document.getElementById('btnStickyMain'), document.getElementById('btnMainBottom')];
+  btns.forEach(function(btn) {
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        btn.classList.add('is-loading');
+        setTimeout(function() { btn.classList.remove('is-loading'); }, 3000);
+      });
+    }
+  });
+
+  // Track Sticky Click
+  var btnSticky = document.getElementById('btnStickyMain');
+  if (btnSticky) {
+    btnSticky.addEventListener('click', function() {
+      trackEvent('CTA_Sticky_Click', { event_category: 'Conversion', event_label: 'Sticky Mobile' });
+    });
+  }
+
+})();
 </script>
 
 </body>
